@@ -29,7 +29,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ── Utility ── */
+        /* -- Utility -- */
         .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
         .section { padding: 100px 0; }
         .tag {
@@ -56,7 +56,7 @@
             max-width: 560px;
         }
 
-        /* ── Nav ── */
+        /* -- Nav -- */
         nav {
             position: fixed; top: 0; left: 0; right: 0;
             z-index: 100;
@@ -197,7 +197,7 @@
         }
         .stat-label { font-size: 0.82rem; color: var(--text-muted); margin-top: 4px; }
 
-        /* ── Services ── */
+        /* -- Services -- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -231,7 +231,7 @@
             color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7;
         }
 
-        /* ── Process ── */
+        /* -- Process -- */
         .process-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -253,7 +253,7 @@
         .process-step h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; }
         .process-step p { color: var(--text-secondary); font-size: 0.88rem; }
 
-        /* ── Portfolio / Before-After ── */
+        /* -- Portfolio / Before-After -- */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -324,7 +324,7 @@
             font-size: 0.72rem; color: var(--text-muted);
         }
 
-        /* ── Testimonial/CTA ── */
+        /* -- Testimonial/CTA -- */
         .cta-section {
             text-align: center;
             background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
@@ -353,7 +353,7 @@
         }
         .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
 
-        /* ── Footer ── */
+        /* -- Footer -- */
         footer {
             padding: 40px 0;
             border-top: 1px solid var(--border);
@@ -362,7 +362,7 @@
         footer p { color: var(--text-muted); font-size: 0.82rem; }
         footer a { color: var(--accent-light); text-decoration: none; }
 
-        /* ── WhatsApp Float ── */
+        /* -- WhatsApp Float -- */
         .whatsapp-float {
             position: fixed; bottom: 28px; right: 28px;
             width: 60px; height: 60px;
@@ -382,7 +382,7 @@
         }
         .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
 
-        /* ── Responsive ── */
+        /* -- Responsive -- */
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .nav-cta { display: none; }
@@ -397,7 +397,7 @@
             .cta-actions { flex-direction: column; align-items: center; }
         }
 
-        /* ── Mobile Nav Overlay ── */
+        /* -- Mobile Nav Overlay -- */
         .mobile-nav {
             display: none;
             position: fixed; top: 0; left: 0; right: 0; bottom: 0;
