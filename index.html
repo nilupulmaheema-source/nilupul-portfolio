@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nilupul Siriwardena — Web Design & Digital Growth for Sri Lankan Businesses</title>
+    <meta name="description" content="Modern, high-converting websites and WhatsApp booking systems for hotels, restaurants, jewellers, and local businesses across Sri Lanka's Western Province.">
+    <meta property="og:title" content="Nilupul Siriwardena — Web Design & Digital Growth">
+    <meta property="og:description" content="Modern websites & WhatsApp booking systems for Sri Lankan businesses. Hotels, restaurants, jewellers & more.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&h=630&fit=crop">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #111118;
+            --bg-card: #16161f;
+            --bg-card-hover: #1c1c28;
+            --accent: #6c63ff;
+            --accent-glow: rgba(108, 99, 255, 0.15);
+            --accent-light: #8b83ff;
+            --green: #22c55e;
+            --green-glow: rgba(34, 197, 94, 0.15);
+            --text-primary: #f0f0f5;
+            --text-secondary: #9898a8;
+            --text-muted: #6b6b7b;
+            --border: #222230;
+            --radius: 16px;
+            --radius-sm: 10px;
+        }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Utility ── */
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+        .section { padding: 100px 0; }
+        .tag {
+            display: inline-block;
+            padding: 6px 14px;
+            background: var(--accent-glow);
+            color: var(--accent-light);
+            border-radius: 100px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin: 20px 0 16px;
+            line-height: 1.2;
+        }
+        .section-sub {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 560px;
+        }
+
+        /* ── Nav ── */
+        nav {
+            position: fixed; top: 0; left: 0; right: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px) saturate(1.4);
+            -webkit-backdrop-filter: blur(20px) saturate(1.4);
+            background: rgba(10, 10, 15, 0.75);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow 0.3s;
+        }
+        nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.4); }
+        .nav-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 16px 24px; max-width: 1120px; margin: 0 auto;
+        }
+        .nav-logo {
+            font-weight: 700; font-size: 1.15rem;
+            background: linear-gradient(135deg, var(--accent), #a78bfa);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-links { display: flex; gap: 32px; list-style: none; }
+        .nav-links a {
+            color: var(--text-secondary); text-decoration: none;
+            font-size: 0.88rem; font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-cta {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 20px;
+            background: var(--green); color: #fff;
+            border-radius: 100px; font-size: 0.85rem; font-weight: 600;
+            text-decoration: none; transition: all 0.2s;
+            box-shadow: 0 0 20px var(--green-glow);
+        }
+        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 30px rgba(34, 197, 94, 0.3); }
+        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+        .hamburger span { display: block; width: 22px; height: 2px; background: var(--text-primary); margin: 5px 0; transition: 0.3s; border-radius: 2px; }
+
+        /* ── Hero ── */
+        .hero {
+            min-height: 100vh;
+            display: flex; align-items: center;
+            position: relative;
+            padding-top: 80px;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute; top: -40%; right: -20%;
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero-content { position: relative; z-index: 2; }
+        .hero-eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 8px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.82rem; color: var(--text-secondary);
+            margin-bottom: 28px;
+        }
+        .hero-eyebrow .dot {
+            width: 8px; height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.4); }
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6.5vw, 4.2rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            max-width: 700px;
+        }
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, var(--accent), #a78bfa, #ec4899);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero p {
+            font-size: 1.12rem; color: var(--text-secondary);
+            max-width: 520px; margin-bottom: 40px;
+        }
+        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 16px 32px;
+            background: var(--accent); color: #fff;
+            border-radius: 100px; font-size: 0.95rem; font-weight: 600;
+            text-decoration: none; border: none; cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 4px 25px var(--accent-glow);
+        }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 35px rgba(108, 99, 255, 0.3); }
+        .btn-secondary {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 16px 32px;
+            background: transparent; color: var(--text-primary);
+            border: 1px solid var(--border);
+            border-radius: 100px; font-size: 0.95rem; font-weight: 500;
+            text-decoration: none; transition: all 0.25s;
+        }
+        .btn-secondary:hover { border-color: var(--text-muted); background: var(--bg-card); }
+        .hero-stats {
+            display: flex; gap: 48px; margin-top: 64px;
+            padding-top: 40px; border-top: 1px solid var(--border);
+        }
+        .stat-number {
+            font-size: 2rem; font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), #a78bfa);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-label { font-size: 0.82rem; color: var(--text-muted); margin-top: 4px; }
+
+        /* ── Services ── */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px; margin-top: 48px;
+        }
+        .service-card {
+            padding: 36px 32px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: all 0.3s;
+            position: relative; overflow: hidden;
+        }
+        .service-card:hover {
+            border-color: var(--accent);
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(108, 99, 255, 0.08);
+        }
+        .service-icon {
+            width: 52px; height: 52px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--accent-glow);
+            border-radius: var(--radius-sm);
+            font-size: 1.5rem; margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 1.15rem; font-weight: 600; margin-bottom: 10px;
+        }
+        .service-card p {
+            color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7;
+        }
+
+        /* ── Process ── */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 32px; margin-top: 48px;
+        }
+        .process-step {
+            text-align: center;
+            padding: 40px 24px;
+            position: relative;
+        }
+        .step-number {
+            font-size: 3.5rem; font-weight: 800;
+            background: linear-gradient(180deg, rgba(108, 99, 255, 0.3), transparent);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+        .process-step h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; }
+        .process-step p { color: var(--text-secondary); font-size: 0.88rem; }
+
+        /* ── Portfolio / Before-After ── */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px; margin-top: 48px;
+        }
+        .portfolio-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        .portfolio-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(108, 99, 255, 0.08);
+        }
+        .portfolio-visual {
+            height: 220px;
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden;
+        }
+        .portfolio-visual .before-after {
+            display: flex; width: 100%; height: 100%;
+        }
+        .portfolio-visual .side {
+            flex: 1; display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            padding: 20px; gap: 12px;
+        }
+        .portfolio-visual .side.before {
+            background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+        }
+        .portfolio-visual .side.after {
+            background: linear-gradient(135deg, #0f1a2e, #0a1225);
+        }
+        .side-label {
+            font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 2px; color: var(--text-muted);
+        }
+        .side.after .side-label { color: var(--green); }
+        .mock-browser {
+            width: 85%; background: var(--bg-primary);
+            border-radius: 6px; overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .mock-browser-bar {
+            height: 16px; background: var(--bg-card);
+            display: flex; align-items: center; gap: 4px; padding: 0 8px;
+        }
+        .mock-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--text-muted); }
+        .mock-body { height: 50px; padding: 6px; }
+        .mock-body.old .line { height: 4px; background: #333; margin: 4px 0; border-radius: 2px; }
+        .mock-body.old .line:nth-child(2) { width: 60%; }
+        .mock-body.new .line { height: 4px; margin: 4px 0; border-radius: 2px; }
+        .mock-body.new .line:nth-child(1) { background: var(--accent); width: 70%; }
+        .mock-body.new .line:nth-child(2) { background: var(--green); width: 40%; }
+        .mock-body.new .line:nth-child(3) { background: #a78bfa; width: 55%; }
+        .portfolio-info { padding: 28px; }
+        .portfolio-info h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 6px; }
+        .portfolio-info p { color: var(--text-secondary); font-size: 0.88rem; }
+        .portfolio-tags { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+        .portfolio-tags span {
+            padding: 4px 10px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.72rem; color: var(--text-muted);
+        }
+
+        /* ── Testimonial/CTA ── */
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 80px 40px;
+            margin-top: 48px;
+            position: relative; overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 16px; position: relative;
+        }
+        .cta-section p {
+            color: var(--text-secondary); font-size: 1.05rem;
+            max-width: 480px; margin: 0 auto 36px; position: relative;
+        }
+        .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+        /* ── Footer ── */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        footer p { color: var(--text-muted); font-size: 0.82rem; }
+        footer a { color: var(--accent-light); text-decoration: none; }
+
+        /* ── WhatsApp Float ── */
+        .whatsapp-float {
+            position: fixed; bottom: 28px; right: 28px;
+            width: 60px; height: 60px;
+            background: var(--green);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.35);
+            z-index: 999;
+            text-decoration: none;
+            transition: all 0.3s;
+            animation: float-bounce 3s ease-in-out infinite;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(34, 197, 94, 0.5); }
+        @keyframes float-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-cta { display: none; }
+            .hamburger { display: block; }
+            .hero-stats { gap: 24px; flex-wrap: wrap; }
+            .hero-actions { flex-direction: column; }
+            .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+            .section { padding: 64px 0; }
+            .services-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .cta-section { padding: 48px 24px; }
+            .cta-actions { flex-direction: column; align-items: center; }
+        }
+
+        /* ── Mobile Nav Overlay ── */
+        .mobile-nav {
+            display: none;
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(10, 10, 15, 0.97);
+            z-index: 200;
+            flex-direction: column;
+            align-items: center; justify-content: center;
+            gap: 32px;
+        }
+        .mobile-nav.active { display: flex; }
+        .mobile-nav a {
+            color: var(--text-primary); text-decoration: none;
+            font-size: 1.3rem; font-weight: 500;
+        }
+        .mobile-nav .close-btn {
+            position: absolute; top: 20px; right: 24px;
+            background: none; border: none; color: var(--text-primary);
+            font-size: 2rem; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── Navigation ── -->
+    <nav id="navbar">
+        <div class="nav-inner">
+            <div class="nav-logo">nilupul.dev</div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">How It Works</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27m%20interested%20in%20learning%20more%20about%20your%20web%20design%20services." class="nav-cta">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
+                WhatsApp
+            </a>
+            <button class="hamburger" onclick="document.getElementById('mobileNav').classList.add('active')">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <button class="close-btn" onclick="this.parentElement.classList.remove('active')">&times;</button>
+        <a href="#services" onclick="this.parentElement.classList.remove('active')">Services</a>
+        <a href="#process" onclick="this.parentElement.classList.remove('active')">How It Works</a>
+        <a href="#work" onclick="this.parentElement.classList.remove('active')">Work</a>
+        <a href="#contact" onclick="this.parentElement.classList.remove('active')">Contact</a>
+        <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27m%20interested%20in%20learning%20more%20about%20your%20web%20design%20services." class="nav-cta" style="display:inline-flex" onclick="this.parentElement.classList.remove('active')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
+            WhatsApp Me
+        </a>
+    </div>
+
+    <!-- ── Hero ── -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-eyebrow">
+                    <span class="dot"></span>
+                    Available for new projects
+                </div>
+                <h1>I build websites that turn visitors into <span class="gradient">customers.</span></h1>
+                <p>Modern, lightning-fast websites and WhatsApp booking systems designed to help Sri Lankan hotels, restaurants, jewellers, and local businesses grow their revenue online.</p>
+                <div class="hero-actions">
+                    <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20to%20discuss%20a%20website%20project." class="btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
+                        Start a Conversation
+                    </a>
+                    <a href="#work" class="btn-secondary">
+                        See My Work ↓
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div>
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Websites Designed</div>
+                    </div>
+                    <div>
+                        <div class="stat-number">3x</div>
+                        <div class="stat-label">Avg. Inquiry Increase</div>
+                    </div>
+                    <div>
+                        <div class="stat-number">24hr</div>
+                        <div class="stat-label">Turnaround on Concepts</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Services ── -->
+    <section class="section" id="services">
+        <div class="container">
+            <span class="tag">Services</span>
+            <h2 class="section-title">Everything your business needs online.</h2>
+            <p class="section-sub">From modern redesigns to WhatsApp booking systems — I handle the full digital presence so you can focus on running your business.</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Website Design & Redesign</h3>
+                    <p>Clean, modern, mobile-first websites that reflect the quality of your physical business. Built to load fast and convert visitors into paying customers.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💬</div>
+                    <h3>WhatsApp Booking Systems</h3>
+                    <p>1-tap WhatsApp inquiry buttons, floating chat widgets, and automated greeting messages that connect prospects to your team in real time.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📍</div>
+                    <h3>Local SEO & Google Rankings</h3>
+                    <p>Schema markup, Google Business optimization, meta descriptions, and structured data that help your business appear first in local search results.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3>Mobile-First Optimization</h3>
+                    <p>Click-to-call links, sticky action bars, compressed images, and instant loading — because 85% of your customers browse on their phones.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Inquiry & Booking Forms</h3>
+                    <p>Custom multi-step inquiry forms for wedding banquets, hotel reservations, restaurant bookings, and appointment scheduling — capturing leads 24/7.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Speed & Performance Audits</h3>
+                    <p>Free website audits identifying speed bottlenecks, broken mobile layouts, missing SEO, and conversion friction points holding your business back.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Process ── -->
+    <section class="section" id="process" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div style="text-align: center;">
+                <span class="tag">How It Works</span>
+                <h2 class="section-title" style="max-width: 100%;">Simple. Fast. No hassle.</h2>
+                <p class="section-sub" style="margin: 0 auto;">From first message to live website in as little as one week.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h3>WhatsApp Chat</h3>
+                    <p>Send me a message. We'll discuss your business, goals, and what your website needs.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h3>Free Site Audit</h3>
+                    <p>I audit your current website (or competitor sites) and share a visual mockup of the improvements.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h3>Design & Build</h3>
+                    <p>I design and develop your new website with mobile-first layouts, booking systems, and WhatsApp integration.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <h3>Launch & Grow</h3>
+                    <p>Your site goes live. I provide ongoing support, SEO optimization, and conversion tracking.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Portfolio ── -->
+    <section class="section" id="work">
+        <div class="container">
+            <span class="tag">Recent Work</span>
+            <h2 class="section-title">Websites that deliver results.</h2>
+            <p class="section-sub">Real improvements for real businesses — from coastal hotels to fine jewellery showrooms.</p>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-visual">
+                        <div class="before-after">
+                            <div class="side before">
+                                <span class="side-label">Before</span>
+                                <div class="mock-browser">
+                                    <div class="mock-browser-bar"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div>
+                                    <div class="mock-body old"><div class="line"></div><div class="line"></div><div class="line"></div></div>
+                                </div>
+                            </div>
+                            <div class="side after">
+                                <span class="side-label">After</span>
+                                <div class="mock-browser">
+                                    <div class="mock-browser-bar"><div class="mock-dot" style="background:var(--green)"></div><div class="mock-dot" style="background:#fbbf24"></div><div class="mock-dot" style="background:#ef4444"></div></div>
+                                    <div class="mock-body new"><div class="line"></div><div class="line"></div><div class="line"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Coastal Beach Resort — Kalutara</h3>
+                        <p>Redesigned the mobile experience with a 1-tap WhatsApp concierge button and inline room availability checker, reducing OTA dependency.</p>
+                        <div class="portfolio-tags">
+                            <span>Hotel & Resort</span>
+                            <span>WhatsApp Booking</span>
+                            <span>Mobile-First</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-visual">
+                        <div class="before-after">
+                            <div class="side before">
+                                <span class="side-label">Before</span>
+                                <div class="mock-browser">
+                                    <div class="mock-browser-bar"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div>
+                                    <div class="mock-body old"><div class="line"></div><div class="line"></div><div class="line"></div></div>
+                                </div>
+                            </div>
+                            <div class="side after">
+                                <span class="side-label">After</span>
+                                <div class="mock-browser">
+                                    <div class="mock-browser-bar"><div class="mock-dot" style="background:var(--green)"></div><div class="mock-dot" style="background:#fbbf24"></div><div class="mock-dot" style="background:#ef4444"></div></div>
+                                    <div class="mock-body new"><div class="line"></div><div class="line"></div><div class="line"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Wedding Banquet Venue — Western Province</h3>
+                        <p>Built a stunning visual gallery with an integrated multi-step wedding inquiry form that captures Date, Guest Count, and Menu preferences 24/7.</p>
+                        <div class="portfolio-tags">
+                            <span>Wedding Venue</span>
+                            <span>Inquiry Forms</span>
+                            <span>Photo Gallery</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-visual">
+                        <div class="before-after">
+                            <div class="side before">
+                                <span class="side-label">Before</span>
+                                <div class="mock-browser">
+                                    <div class="mock-browser-bar"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div>
+                                    <div class="mock-body old"><div class="line"></div><div class="line"></div><div class="line"></div></div>
+                                </div>
+                            </div>
+                            <div class="side after">
+                                <span class="side-label">After</span>
+                                <div class="mock-browser">
+                                    <div class="mock-browser-bar"><div class="mock-dot" style="background:var(--green)"></div><div class="mock-dot" style="background:#fbbf24"></div><div class="mock-dot" style="background:#ef4444"></div></div>
+                                    <div class="mock-body new"><div class="line"></div><div class="line"></div><div class="line"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Gemstone & Jewellery Showroom — Panadura</h3>
+                        <p>Created a filterable gemstone catalog with WhatsApp custom design consultations, targeting both local buyers and the Sri Lankan diaspora overseas.</p>
+                        <div class="portfolio-tags">
+                            <span>E-Commerce</span>
+                            <span>Product Catalog</span>
+                            <span>WhatsApp Sales</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="cta-section">
+                <span class="tag">Let's Work Together</span>
+                <h2>Ready to turn your website into your best salesperson?</h2>
+                <p>Send me a quick WhatsApp message. I'll reply within a few hours with a free audit of your current site and a clear plan to improve it.</p>
+                <div class="cta-actions">
+                    <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20a%20free%20website%20audit%20for%20my%20business." class="btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
+                        Get a Free Audit on WhatsApp
+                    </a>
+                    <a href="mailto:nilupul.maheema@gmail.com" class="btn-secondary">
+                        ✉️ nilupul.maheema@gmail.com
+                    </a>
+                    <a href="tel:+94768933421" class="btn-secondary">
+                        📞 076 893 3421
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Footer ── -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Nilupul Siriwardena. Web Designer & Digital Consultant based in Sri Lanka.</p>
+            <p style="margin-top: 8px;">
+                <a href="mailto:nilupul.maheema@gmail.com" style="color: var(--accent-light); text-decoration: none;">nilupul.maheema@gmail.com</a>
+                <span style="color: var(--text-muted); margin: 0 10px;">•</span>
+                <a href="tel:+94768933421" style="color: var(--text-secondary); text-decoration: none;">076 893 3421</a>
+                <span style="color: var(--text-muted); margin: 0 10px;">•</span>
+                <a href="https://wa.me/94768933421" style="color: var(--green); text-decoration: none;">WhatsApp</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- ── Floating WhatsApp Button ── -->
+    <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business." class="whatsapp-float" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
+    </a>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Intersection Observer for fade-in animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.service-card, .portfolio-card, .process-step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
