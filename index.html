@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --bg-primary: #0a0a0f;
@@ -77,7 +77,7 @@
             z-index: 100;
             backdrop-filter: blur(20px) saturate(1.4);
             -webkit-backdrop-filter: blur(20px) saturate(1.4);
-            background: rgba(10, 10, 15, 0.75);
+            background: rgba(10, 10, 15, 0.85);
             border-bottom: 1px solid var(--border);
             transition: box-shadow 0.3s;
         }
@@ -194,40 +194,47 @@
         .btn-secondary {
             display: inline-flex; align-items: center; gap: 10px;
             padding: 16px 32px;
-            background: transparent; color: var(--text-primary);
-            border: 1px solid var(--border);
+            background: var(--bg-card); color: var(--text-primary);
             border-radius: 100px; font-size: 0.95rem; font-weight: 500;
-            text-decoration: none; transition: all 0.25s;
+            text-decoration: none; border: 1px solid var(--border);
+            cursor: pointer; transition: all 0.25s;
         }
-        .btn-secondary:hover { border-color: var(--text-muted); background: var(--bg-card); }
-        .hero-stats {
-            display: flex; gap: 48px; margin-top: 64px;
-            padding-top: 40px; border-top: 1px solid var(--border);
-        }
+        .btn-secondary:hover { background: var(--bg-card-hover); border-color: var(--text-muted); }
+
+        .hero-stats { display: flex; gap: 48px; margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border); }
+        .stat-item { display: flex; flex-direction: column; gap: 4px; }
         .stat-number {
-            font-size: 2rem; font-weight: 700;
-            background: linear-gradient(135deg, var(--accent), #a78bfa);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem; font-weight: 700;
+            color: var(--accent-light);
         }
-        .stat-label { font-size: 0.82rem; color: var(--text-muted); margin-top: 4px; }
+        .stat-label { font-size: 0.85rem; color: var(--text-muted); }
 
         /* -- Services -- */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px; margin-top: 48px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
         }
         .service-card {
-            padding: 36px 32px;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
+            padding: 36px 32px;
             transition: all 0.3s;
-            position: relative; overflow: hidden;
+            position: relative;
+            overflow: hidden;
         }
+        .service-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            opacity: 0; transition: 0.3s;
+        }
+        .service-card:hover::before { opacity: 1; }
         .service-card:hover {
-            border-color: var(--accent);
+            border-color: rgba(108, 99, 255, 0.3);
             background: var(--bg-card-hover);
             transform: translateY(-4px);
             box-shadow: 0 12px 40px rgba(108, 99, 255, 0.08);
@@ -250,29 +257,36 @@
         .process-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 32px; margin-top: 48px;
+            gap: 24px;
+            margin-top: 48px;
         }
         .process-step {
-            text-align: center;
-            padding: 40px 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px 28px;
             position: relative;
         }
         .step-number {
-            font-size: 3.5rem; font-weight: 800;
-            background: linear-gradient(180deg, rgba(108, 99, 255, 0.3), transparent);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem; font-weight: 700;
+            color: var(--accent-glow);
+            -webkit-text-stroke: 1px var(--accent-light);
             margin-bottom: 16px;
         }
-        .process-step h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; }
-        .process-step p { color: var(--text-secondary); font-size: 0.88rem; }
+        .process-step h3 {
+            font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;
+        }
+        .process-step p {
+            color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6;
+        }
 
         /* -- Portfolio / Before-After -- */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 24px; margin-top: 48px;
+            gap: 32px;
+            margin-top: 48px;
         }
         .portfolio-card {
             background: var(--bg-card);
@@ -282,161 +296,151 @@
             transition: all 0.3s;
         }
         .portfolio-card:hover {
-            border-color: var(--accent);
             transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(108, 99, 255, 0.08);
+            border-color: rgba(108, 99, 255, 0.3);
+            box-shadow: 0 16px 50px rgba(0,0,0,0.3);
         }
-        .portfolio-visual {
+        .portfolio-preview {
             height: 220px;
-            display: flex; align-items: center; justify-content: center;
-            position: relative; overflow: hidden;
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-secondary);
         }
-        .portfolio-visual .before-after {
-            display: flex; width: 100%; height: 100%;
+        .portfolio-preview img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
-        .portfolio-visual .side {
-            flex: 1; display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            padding: 20px; gap: 12px;
+        .portfolio-card:hover .portfolio-preview img {
+            transform: scale(1.05);
         }
-        .portfolio-visual .side.before {
-            background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
-        }
-        .portfolio-visual .side.after {
-            background: linear-gradient(135deg, #0f1a2e, #0a1225);
-        }
-        .side-label {
-            font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 2px; color: var(--text-muted);
-        }
-        .side.after .side-label { color: var(--green); }
-        .mock-browser {
-            width: 85%; background: var(--bg-primary);
-            border-radius: 6px; overflow: hidden;
-            border: 1px solid var(--border);
-        }
-        .mock-browser-bar {
-            height: 16px; background: var(--bg-card);
-            display: flex; align-items: center; gap: 4px; padding: 0 8px;
-        }
-        .mock-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--text-muted); }
-        .mock-body { height: 50px; padding: 6px; }
-        .mock-body.old .line { height: 4px; background: #333; margin: 4px 0; border-radius: 2px; }
-        .mock-body.old .line:nth-child(2) { width: 60%; }
-        .mock-body.new .line { height: 4px; margin: 4px 0; border-radius: 2px; }
-        .mock-body.new .line:nth-child(1) { background: var(--accent); width: 70%; }
-        .mock-body.new .line:nth-child(2) { background: var(--green); width: 40%; }
-        .mock-body.new .line:nth-child(3) { background: #a78bfa; width: 55%; }
-        .portfolio-info { padding: 28px; }
-        .portfolio-info h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 6px; }
-        .portfolio-info p { color: var(--text-secondary); font-size: 0.88rem; }
-        .portfolio-tags { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
-        .portfolio-tags span {
-            padding: 4px 10px;
-            background: var(--bg-primary);
-            border: 1px solid var(--border);
+        .portfolio-badge {
+            position: absolute; top: 16px; right: 16px;
+            padding: 4px 12px;
+            background: rgba(10, 10, 15, 0.85);
+            backdrop-filter: blur(10px);
             border-radius: 100px;
-            font-size: 0.72rem; color: var(--text-muted);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            border: 1px solid var(--border);
+        }
+        .portfolio-content { padding: 28px; }
+        .portfolio-cat {
+            font-size: 0.78rem; font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 8px;
+        }
+        .portfolio-content h3 {
+            font-size: 1.25rem; font-weight: 600; margin-bottom: 10px;
+        }
+        .portfolio-content p {
+            color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .portfolio-highlights {
+            display: flex; flex-wrap: wrap; gap: 8px;
+            list-style: none;
+        }
+        .portfolio-highlights li {
+            padding: 4px 10px;
+            background: var(--bg-secondary);
+            border-radius: 6px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
         }
 
         /* -- Testimonial/CTA -- */
         .cta-section {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(34, 197, 94, 0.05));
+            border: 1px solid var(--accent-glow);
+            border-radius: 24px;
+            padding: 64px 48px;
             text-align: center;
-            background: linear-gradient(135deg, var(--bg-card), var(--bg-secondary));
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 80px 40px;
-            margin-top: 48px;
-            position: relative; overflow: hidden;
-        }
-        .cta-section::before {
-            content: '';
-            position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(108, 99, 255, 0.06) 0%, transparent 70%);
-            pointer-events: none;
+            position: relative;
+            overflow: hidden;
         }
         .cta-section h2 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
             font-weight: 700;
-            margin-bottom: 16px; position: relative;
+            margin-bottom: 16px;
         }
         .cta-section p {
-            color: var(--text-secondary); font-size: 1.05rem;
-            max-width: 480px; margin: 0 auto 36px; position: relative;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 560px;
+            margin: 0 auto 32px;
         }
-        .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+        .cta-actions {
+            display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+        }
 
         /* -- Footer -- */
         footer {
             padding: 40px 0;
             border-top: 1px solid var(--border);
             text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
         }
-        footer p { color: var(--text-muted); font-size: 0.82rem; }
-        footer a { color: var(--accent-light); text-decoration: none; }
 
         /* -- WhatsApp Float -- */
         .whatsapp-float {
-            position: fixed; bottom: 28px; right: 28px;
-            width: 60px; height: 60px;
+            position: fixed;
+            bottom: 28px; right: 28px;
+            width: 68px; height: 68px;
             background: var(--green);
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 4px 20px rgba(34, 197, 94, 0.35);
+            color: #fff;
+            box-shadow: 0 6px 30px rgba(34, 197, 94, 0.4);
             z-index: 999;
-            text-decoration: none;
             transition: all 0.3s;
-            animation: float-bounce 3s ease-in-out infinite;
+            text-decoration: none;
         }
-        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(34, 197, 94, 0.5); }
-        @keyframes float-bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 40px rgba(34, 197, 94, 0.5);
         }
-        .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
+        .whatsapp-float svg { width: 36px; height: 36px; fill: #fff; }
 
         /* -- Responsive -- */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .nav-cta { display: none; }
+            .nav-links, .nav-cta { display: none; }
             .hamburger { display: block; }
-            .hero-stats { gap: 24px; flex-wrap: wrap; }
-            .hero-actions { flex-direction: column; }
-            .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
-            .section { padding: 64px 0; }
-            .services-grid { grid-template-columns: 1fr; }
-            .portfolio-grid { grid-template-columns: 1fr; }
-            .cta-section { padding: 48px 24px; }
-            .cta-actions { flex-direction: column; align-items: center; }
+            .hero-stats { flex-direction: column; gap: 20px; }
+            .cta-section { padding: 40px 24px; }
+            .cta-actions { flex-direction: column; }
+            .cta-actions a { width: 100%; justify-content: center; }
         }
 
         /* -- Mobile Nav Overlay -- */
-        .mobile-nav {
+        .mobile-menu {
             display: none;
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(10, 10, 15, 0.97);
-            z-index: 200;
-            flex-direction: column;
-            align-items: center; justify-content: center;
-            gap: 32px;
+            position: fixed; top: 70px; left: 0; right: 0; bottom: 0;
+            background: rgba(10, 10, 15, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 40px 24px;
+            z-index: 99;
+            flex-direction: column; gap: 24px;
         }
-        .mobile-nav.active { display: flex; }
-        .mobile-nav a {
-            color: var(--text-primary); text-decoration: none;
-            font-size: 1.3rem; font-weight: 500;
-        }
-        .mobile-nav .close-btn {
-            position: absolute; top: 20px; right: 24px;
-            background: none; border: none; color: var(--text-primary);
-            font-size: 2rem; cursor: pointer;
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a {
+            font-size: 1.2rem; font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
         }
     </style>
 </head>
 <body>
 
-    <!-- -- Navigation -- -->
+    <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-inner">
             <a href="#" class="nav-logo">nilupul.dev</a>
@@ -446,67 +450,67 @@
                 <li><a href="#work">Work</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27m%20interested%20in%20learning%20more%20about%20your%20web%20design%20services." class="nav-cta">
+            <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business." class="nav-cta">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
                 WhatsApp
             </a>
-            <button class="hamburger" onclick="document.getElementById('mobileNav').classList.add('active')">
+            <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
     </nav>
 
-    <!-- Mobile Nav -->
-    <div class="mobile-nav" id="mobileNav">
-        <button class="close-btn" onclick="this.parentElement.classList.remove('active')">&times;</button>
-        <a href="#services" onclick="this.parentElement.classList.remove('active')">Services</a>
-        <a href="#process" onclick="this.parentElement.classList.remove('active')">How It Works</a>
-        <a href="#work" onclick="this.parentElement.classList.remove('active')">Work</a>
-        <a href="#contact" onclick="this.parentElement.classList.remove('active')">Contact</a>
-        <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27m%20interested%20in%20learning%20more%20about%20your%20web%20design%20services." class="nav-cta" style="display:inline-flex" onclick="this.parentElement.classList.remove('active')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
-            WhatsApp Me
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#services" class="mobile-link">Services</a>
+        <a href="#process" class="mobile-link">How It Works</a>
+        <a href="#work" class="mobile-link">Work</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business." class="btn-primary" style="text-align: center; justify-content: center; margin-top: 16px;">
+            Chat on WhatsApp
         </a>
     </div>
 
-    <!-- -- Hero -- -->
+    <!-- Hero -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-eyebrow">
-                    <span class="dot"></span>
-                    Available for new projects
+        <div class="container hero-content">
+            <div class="hero-eyebrow">
+                <span class="dot"></span>
+                Available for new projects in Sri Lanka
+            </div>
+            <h1>
+                I build <span class="gradient">websites that bring you more customers</span>, not just look pretty.
+            </h1>
+            <p>
+                High-converting, mobile-fast websites & WhatsApp booking systems for hotels, restaurants, jewellers, and local businesses across Western Province and beyond.
+            </p>
+            <div class="hero-actions">
+                <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20to%20discuss%20a%20website%20for%20my%20business." class="btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
+                    Start a Project on WhatsApp
+                </a>
+                <a href="#work" class="btn-secondary">
+                    See My Work &darr;
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Businesses Audited</div>
                 </div>
-                <h1>I build websites that turn visitors into <span class="gradient">customers.</span></h1>
-                <p>Modern, lightning-fast websites and WhatsApp booking systems designed to help Sri Lankan hotels, restaurants, jewellers, and local businesses grow their revenue online.</p>
-                <div class="hero-actions">
-                    <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20to%20discuss%20a%20website%20project." class="btn-primary">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
-                        Start a Conversation
-                    </a>
-                    <a href="#work" class="btn-secondary">
-                        See My Work &darr;
-                    </a>
+                <div class="stat-item">
+                    <div class="stat-number">3x</div>
+                    <div class="stat-label">Avg. Mobile Load Improvement</div>
                 </div>
-                <div class="hero-stats">
-                    <div>
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Websites Designed</div>
-                    </div>
-                    <div>
-                        <div class="stat-number">3x</div>
-                        <div class="stat-label">Avg. Inquiry Increase</div>
-                    </div>
-                    <div>
-                        <div class="stat-number">24hr</div>
-                        <div class="stat-label">Turnaround on Concepts</div>
-                    </div>
+                <div class="stat-item">
+                    <div class="stat-number">24hr</div>
+                    <div class="stat-label">Turnaround on Audits</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- -- Services -- -->
+    <!-- Services -->
     <section class="section" id="services">
         <div class="container">
             <span class="tag">Services</span>
@@ -560,7 +564,7 @@
         </div>
     </section>
 
-    <!-- -- Process -- -->
+    <!-- Process -->
     <section class="section" id="process" style="background: var(--bg-secondary);">
         <div class="container">
             <div style="text-align: center;">
@@ -593,7 +597,7 @@
         </div>
     </section>
 
-    <!-- -- Portfolio -- -->
+    <!-- Portfolio -->
     <section class="section" id="work">
         <div class="container">
             <span class="tag">Recent Work</span>
@@ -601,98 +605,64 @@
             <p class="section-sub">Real improvements for real businesses - from coastal hotels to fine jewellery showrooms.</p>
 
             <div class="portfolio-grid">
+                <!-- Case Study 1 -->
                 <div class="portfolio-card">
-                    <div class="portfolio-visual">
-                        <div class="before-after">
-                            <div class="side before">
-                                <span class="side-label">Before</span>
-                                <div class="mock-browser">
-                                    <div class="mock-browser-bar"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div>
-                                    <div class="mock-body old"><div class="line"></div><div class="line"></div><div class="line"></div></div>
-                                </div>
-                            </div>
-                            <div class="side after">
-                                <span class="side-label">After</span>
-                                <div class="mock-browser">
-                                    <div class="mock-browser-bar"><div class="mock-dot" style="background:var(--green)"></div><div class="mock-dot" style="background:#fbbf24"></div><div class="mock-dot" style="background:#ef4444"></div></div>
-                                    <div class="mock-body new"><div class="line"></div><div class="line"></div><div class="line"></div></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="portfolio-preview">
+                        <img src="images/resort-redesign.jpg" alt="Boutique Resort Redesign" loading="lazy">
+                        <span class="portfolio-badge">Kalutara Coast</span>
                     </div>
-                    <div class="portfolio-info">
-                        <h3>Coastal Beach Resort - Kalutara</h3>
-                        <p>Redesigned the mobile experience with a 1-tap WhatsApp concierge button and inline room availability checker, reducing OTA dependency.</p>
-                        <div class="portfolio-tags">
-                            <span>Hotel & Resort</span>
-                            <span>WhatsApp Booking</span>
-                            <span>Mobile-First</span>
-                        </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-cat">Hotel & Hospitality</div>
+                        <h3>Boutique Beach Resort Redesign</h3>
+                        <p>Transformed an outdated (2018) layout into a luxury mobile-first experience. Added direct day-outing inquiry flows and vibrant room visuals.</p>
+                        <ul class="portfolio-highlights">
+                            <li>+78% Direct Booking Inquiries</li>
+                            <li>1.2s Mobile Load Time</li>
+                            <li>WhatsApp Concierge</li>
+                        </ul>
                     </div>
                 </div>
+
+                <!-- Case Study 2 -->
                 <div class="portfolio-card">
-                    <div class="portfolio-visual">
-                        <div class="before-after">
-                            <div class="side before">
-                                <span class="side-label">Before</span>
-                                <div class="mock-browser">
-                                    <div class="mock-browser-bar"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div>
-                                    <div class="mock-body old"><div class="line"></div><div class="line"></div><div class="line"></div></div>
-                                </div>
-                            </div>
-                            <div class="side after">
-                                <span class="side-label">After</span>
-                                <div class="mock-browser">
-                                    <div class="mock-browser-bar"><div class="mock-dot" style="background:var(--green)"></div><div class="mock-dot" style="background:#fbbf24"></div><div class="mock-dot" style="background:#ef4444"></div></div>
-                                    <div class="mock-body new"><div class="line"></div><div class="line"></div><div class="line"></div></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="portfolio-preview">
+                        <img src="images/jewellery-showroom.jpg" alt="Fine Jewellery Showroom" loading="lazy">
+                        <span class="portfolio-badge">Panadura</span>
                     </div>
-                    <div class="portfolio-info">
-                        <h3>Wedding Banquet Venue - Western Province</h3>
-                        <p>Built a stunning visual gallery with an integrated multi-step wedding inquiry form that captures Date, Guest Count, and Menu preferences 24/7.</p>
-                        <div class="portfolio-tags">
-                            <span>Wedding Venue</span>
-                            <span>Inquiry Forms</span>
-                            <span>Photo Gallery</span>
-                        </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-cat">Luxury Retail</div>
+                        <h3>Gem & Jewellery Digital Catalog</h3>
+                        <p>Created a minimalist, luxury showroom website with high-resolution gem galleries and instant WhatsApp pricing inquiries for international buyers.</p>
+                        <ul class="portfolio-highlights">
+                            <li>2.5x Inquiry Conversion</li>
+                            <li>Google Search High-Ranking</li>
+                            <li>Custom Jewelry Inquiry Form</li>
+                        </ul>
                     </div>
                 </div>
+
+                <!-- Case Study 3 -->
                 <div class="portfolio-card">
-                    <div class="portfolio-visual">
-                        <div class="before-after">
-                            <div class="side before">
-                                <span class="side-label">Before</span>
-                                <div class="mock-browser">
-                                    <div class="mock-browser-bar"><div class="mock-dot"></div><div class="mock-dot"></div><div class="mock-dot"></div></div>
-                                    <div class="mock-body old"><div class="line"></div><div class="line"></div><div class="line"></div></div>
-                                </div>
-                            </div>
-                            <div class="side after">
-                                <span class="side-label">After</span>
-                                <div class="mock-browser">
-                                    <div class="mock-browser-bar"><div class="mock-dot" style="background:var(--green)"></div><div class="mock-dot" style="background:#fbbf24"></div><div class="mock-dot" style="background:#ef4444"></div></div>
-                                    <div class="mock-body new"><div class="line"></div><div class="line"></div><div class="line"></div></div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="portfolio-preview">
+                        <img src="images/coastal-dining.jpg" alt="Coastal Dining & Events" loading="lazy">
+                        <span class="portfolio-badge">Wadduwa</span>
                     </div>
-                    <div class="portfolio-info">
-                        <h3>Gemstone & Jewellery Showroom - Panadura</h3>
-                        <p>Created a filterable gemstone catalog with WhatsApp custom design consultations, targeting both local buyers and the Sri Lankan diaspora overseas.</p>
-                        <div class="portfolio-tags">
-                            <span>E-Commerce</span>
-                            <span>Product Catalog</span>
-                            <span>WhatsApp Sales</span>
-                        </div>
+                    <div class="portfolio-content">
+                        <div class="portfolio-cat">Dining & Events</div>
+                        <h3>Beachfront Restaurant & Weddings</h3>
+                        <p>Designed a stunning restaurant and banquet venue website. Features downloadable menus, 3d-like gallery, and dedicated wedding package inquiry forms.</p>
+                        <ul class="portfolio-highlights">
+                            <li>100% Mobile-Responsive</li>
+                            <li>Over 400kb Menu Downloads</li>
+                            <li>Instant WhatsApp Reservations</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- -- CTA -- -->
+    <!-- CTA -->
     <section class="section" id="contact">
         <div class="container">
             <div class="cta-section">
@@ -731,7 +701,7 @@
         </div>
     </footer>
 
-    <!-- -- Floating WhatsApp Button -- -->
+    <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business." class="whatsapp-float" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
     </a>
@@ -741,6 +711,20 @@
         window.addEventListener('scroll', () => {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
         });
+
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (hamburger && mobileMenu) {
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('open');
+            });
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('open');
+                });
+            });
+        }
 
         // Intersection Observer for fade-in animations
         const observer = new IntersectionObserver((entries) => {
