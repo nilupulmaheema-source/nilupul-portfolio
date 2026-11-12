@@ -3,783 +3,441 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nilupul Siriwardena - Web Design & Digital Growth for Sri Lankan Businesses</title>
-    <meta name="description" content="Modern, high-converting websites and WhatsApp booking systems for hotels, restaurants, jewellers, and local businesses across Sri Lanka's Western Province.">
-    <meta property="og:title" content="Nilupul Siriwardena - Web Design & Digital Growth">
-    <meta property="og:description" content="Modern websites & WhatsApp booking systems for Sri Lankan businesses. Hotels, restaurants, jewellers & more.">
+    <title>Nilupul Siriwardena — Web Design & Digital Growth</title>
+    <meta name="description" content="Precision web design, mobile optimization, and WhatsApp booking systems for hotels, luxury brands, and established businesses across Sri Lanka.">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="Nilupul Siriwardena — Web Design & Digital Growth">
+    <meta property="og:description" content="Precision web design & direct WhatsApp booking systems for Sri Lankan hotels, jewelers & local enterprises.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&h=630&fit=crop">
+    <meta property="og:image" content="images/resort-redesign.jpg">
+
+    <!-- Fonts: Rethink Sans (Primary) + Hedvig Letters Serif (Editorial Display) as defined in Figma Brand Guidelines -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #111118;
-            --bg-card: #16161f;
-            --bg-card-hover: #1c1c28;
-            --accent: #6c63ff;
-            --accent-glow: rgba(108, 99, 255, 0.15);
-            --accent-light: #8b83ff;
-            --green: #22c55e;
-            --green-glow: rgba(34, 197, 94, 0.15);
-            --text-primary: #f0f0f5;
-            --text-secondary: #9898a8;
-            --text-muted: #6b6b7b;
-            --border: #222230;
-            --radius: 16px;
-            --radius-sm: 10px;
-        }
-
-        html { scroll-behavior: smooth; font-size: 16px; }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.7;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* -- Utility -- */
-        .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
-        .section { padding: 100px 0; }
-        .tag {
-            display: inline-block;
-            padding: 6px 14px;
-            background: var(--accent-glow);
-            color: var(--accent-light);
-            border-radius: 100px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-        }
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
-            margin: 20px 0 16px;
-            line-height: 1.2;
-        }
-        .section-sub {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            max-width: 560px;
-        }
-
-        /* -- Nav -- */
-        nav {
-            position: fixed; top: 0; left: 0; right: 0;
-            z-index: 100;
-            backdrop-filter: blur(20px) saturate(1.4);
-            -webkit-backdrop-filter: blur(20px) saturate(1.4);
-            background: rgba(10, 10, 15, 0.85);
-            border-bottom: 1px solid var(--border);
-            transition: box-shadow 0.3s;
-        }
-        nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.4); }
-        .nav-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 24px;
-            max-width: 1120px;
-            margin: 0 auto;
-            height: 72px;
-            width: 100%;
-        }
-        .nav-logo {
-            font-weight: 700;
-            font-size: 1.15rem;
-            color: var(--text-primary);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-        .nav-links a {
-            color: var(--text-secondary); text-decoration: none;
-            font-size: 0.88rem; font-weight: 500;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: var(--text-primary); }
-        .nav-cta {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 10px 20px;
-            background: var(--green); color: #fff;
-            border-radius: 100px; font-size: 0.85rem; font-weight: 600;
-            text-decoration: none; transition: all 0.2s;
-            box-shadow: 0 0 20px var(--green-glow);
-            white-space: nowrap;
-        }
-        .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 30px rgba(34, 197, 94, 0.3); }
-        .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
-        .hamburger span { display: block; width: 22px; height: 2px; background: var(--text-primary); margin: 5px 0; transition: 0.3s; border-radius: 2px; }
-
-        /* -- Hero -- */
-        .hero {
-            min-height: 100vh;
-            display: flex; align-items: center;
-            position: relative;
-            padding-top: 100px;
-            padding-bottom: 60px;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute; top: -40%; right: -20%;
-            width: 700px; height: 700px;
-            background: radial-gradient(circle, rgba(108, 99, 255, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
-            pointer-events: none;
-        }
-        .hero-content { position: relative; z-index: 2; }
-        .hero-eyebrow {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 8px 16px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            font-size: 0.82rem; color: var(--text-secondary);
-            margin-bottom: 28px;
-        }
-        .hero-eyebrow .dot {
-            width: 8px; height: 8px;
-            background: var(--green);
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.4); }
-        }
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 6.5vw, 4.2rem);
-            font-weight: 700;
-            line-height: 1.15;
-            margin-bottom: 24px;
-            max-width: 700px;
-        }
-        .hero h1 .gradient {
-            background: linear-gradient(135deg, var(--accent), #a78bfa, #ec4899);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero p {
-            font-size: 1.12rem; color: var(--text-secondary);
-            max-width: 520px; margin-bottom: 40px;
-        }
-        .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-        .btn-primary {
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 16px 32px;
-            background: var(--accent); color: #fff;
-            border-radius: 100px; font-size: 0.95rem; font-weight: 600;
-            text-decoration: none; border: none; cursor: pointer;
-            transition: all 0.25s;
-            box-shadow: 0 4px 25px var(--accent-glow);
-        }
-        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 35px rgba(108, 99, 255, 0.3); }
-        .btn-secondary {
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 16px 32px;
-            background: var(--bg-card); color: var(--text-primary);
-            border-radius: 100px; font-size: 0.95rem; font-weight: 500;
-            text-decoration: none; border: 1px solid var(--border);
-            cursor: pointer; transition: all 0.25s;
-        }
-        .btn-secondary:hover { background: var(--bg-card-hover); border-color: var(--text-muted); }
-
-        .hero-stats { display: flex; gap: 48px; margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--border); }
-        .stat-item { display: flex; flex-direction: column; gap: 4px; }
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem; font-weight: 700;
-            color: var(--accent-light);
-        }
-        .stat-label { font-size: 0.85rem; color: var(--text-muted); }
-
-        /* -- Services -- */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-            margin-top: 48px;
-        }
-        .service-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 36px 32px;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        .service-card::before {
-            content: '';
-            position: absolute; top: 0; left: 0; right: 0; height: 2px;
-            background: linear-gradient(90deg, var(--accent), transparent);
-            opacity: 0; transition: 0.3s;
-        }
-        .service-card:hover::before { opacity: 1; }
-        .service-card:hover {
-            border-color: rgba(108, 99, 255, 0.3);
-            background: var(--bg-card-hover);
-            transform: translateY(-4px);
-            box-shadow: 0 12px 40px rgba(108, 99, 255, 0.08);
-        }
-        .service-image {
-            width: 100%;
-            height: 180px;
-            border-radius: var(--radius-sm);
-            overflow: hidden;
-            margin-bottom: 20px;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border);
-            position: relative;
-        }
-        .service-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .service-card:hover .service-image img {
-            transform: scale(1.06);
-        }
-        .service-icon {
-            width: 44px; height: 44px;
-            display: flex; align-items: center; justify-content: center;
-            background: var(--accent-glow);
-            border-radius: var(--radius-sm);
-            font-size: 1.5rem; margin-bottom: 20px;
-        }
-        .service-card h3 {
-            font-size: 1.15rem; font-weight: 600; margin-bottom: 10px;
-        }
-        .service-card p {
-            color: var(--text-secondary); font-size: 0.92rem; line-height: 1.7;
-        }
-
-        /* -- Process -- */
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 24px;
-            margin-top: 48px;
-        }
-        .process-step {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 32px 28px;
-            position: relative;
-        }
-        .step-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem; font-weight: 700;
-            color: var(--accent-glow);
-            -webkit-text-stroke: 1px var(--accent-light);
-            margin-bottom: 16px;
-        }
-        .process-step h3 {
-            font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;
-        }
-        .process-step p {
-            color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6;
-        }
-
-        /* -- Portfolio / Before-After -- */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 32px;
-            margin-top: 48px;
-        }
-        .portfolio-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-        .portfolio-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(108, 99, 255, 0.3);
-            box-shadow: 0 16px 50px rgba(0,0,0,0.3);
-        }
-        .portfolio-preview {
-            height: 220px;
-            position: relative;
-            overflow: hidden;
-            background: var(--bg-secondary);
-        }
-        .portfolio-preview img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .portfolio-card:hover .portfolio-preview img {
-            transform: scale(1.05);
-        }
-        .portfolio-badge {
-            position: absolute; top: 16px; right: 16px;
-            padding: 4px 12px;
-            background: rgba(10, 10, 15, 0.85);
-            backdrop-filter: blur(10px);
-            border-radius: 100px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--accent-light);
-            border: 1px solid var(--border);
-        }
-        .portfolio-content { padding: 28px; }
-        .portfolio-cat {
-            font-size: 0.78rem; font-weight: 600;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            margin-bottom: 8px;
-        }
-        .portfolio-content h3 {
-            font-size: 1.25rem; font-weight: 600; margin-bottom: 10px;
-        }
-        .portfolio-content p {
-            color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;
-            margin-bottom: 16px;
-        }
-        .portfolio-highlights {
-            display: flex; flex-wrap: wrap; gap: 8px;
-            list-style: none;
-        }
-        .portfolio-highlights li {
-            padding: 4px 10px;
-            background: var(--bg-secondary);
-            border-radius: 6px;
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            border: 1px solid var(--border);
-        }
-
-        /* -- Testimonial/CTA -- */
-        .cta-section {
-            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(34, 197, 94, 0.05));
-            border: 1px solid var(--accent-glow);
-            border-radius: 24px;
-            padding: 64px 48px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .cta-section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-        .cta-section p {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            max-width: 560px;
-            margin: 0 auto 32px;
-        }
-        .cta-actions {
-            display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
-        }
-
-        /* -- Footer -- */
-        footer {
-            padding: 40px 0;
-            border-top: 1px solid var(--border);
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        /* -- WhatsApp Float -- */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 28px; right: 28px;
-            width: 68px; height: 68px;
-            background: var(--green);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: #fff;
-            box-shadow: 0 6px 30px rgba(34, 197, 94, 0.4);
-            z-index: 999;
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 40px rgba(34, 197, 94, 0.5);
-        }
-        .whatsapp-float svg { width: 36px; height: 36px; fill: #fff; }
-
-        /* -- Responsive -- */
-        @media (max-width: 768px) {
-            .nav-links, .nav-cta { display: none; }
-            .hamburger { display: block; }
-            .hero-stats { flex-direction: column; gap: 20px; }
-            .cta-section { padding: 40px 24px; }
-            .cta-actions { flex-direction: column; }
-            .cta-actions a { width: 100%; justify-content: center; }
-        }
-
-        /* -- Mobile Nav Overlay -- */
-        .mobile-menu {
-            display: none;
-            position: fixed; top: 70px; left: 0; right: 0; bottom: 0;
-            background: rgba(10, 10, 15, 0.98);
-            backdrop-filter: blur(20px);
-            padding: 40px 24px;
-            z-index: 99;
-            flex-direction: column; gap: 24px;
-        }
-        .mobile-menu.open { display: flex; }
-        .mobile-menu a {
-            font-size: 1.2rem; font-weight: 600;
-            color: var(--text-primary);
-            text-decoration: none;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Rethink+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-inner">
-            <a href="#" class="nav-logo">nilupul.dev</a>
-            <ul class="nav-links">
-                <li><a href="#services">Services</a></li>
-                <li><a href="#process">How It Works</a></li>
-                <li><a href="#work">Work</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business." class="nav-cta">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
-                WhatsApp
+    <!-- Top Navigation -->
+    <header class="site-header" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">
+                <span class="logo-mark"></span>
+                <span class="logo-text">nilupul<span class="logo-dot">.</span>dev</span>
             </a>
-            <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
+            
+            <nav class="desktop-nav">
+                <ol class="nav-menu">
+                    <li><a href="#services"><span class="nav-num">01</span>Services</a></li>
+                    <li><a href="#methodology"><span class="nav-num">02</span>Approach</a></li>
+                    <li><a href="#work"><span class="nav-num">03</span>Selected Work</a></li>
+                    <li><a href="#contact"><span class="nav-num">04</span>Contact</a></li>
+                </ol>
+            </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#services" class="mobile-link">Services</a>
-        <a href="#process" class="mobile-link">How It Works</a>
-        <a href="#work" class="mobile-link">Work</a>
-        <a href="#contact" class="mobile-link">Contact</a>
-        <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business." class="btn-primary" style="text-align: center; justify-content: center; margin-top: 16px;">
-            Chat on WhatsApp
-        </a>
+            <div class="nav-actions">
+                <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20to%20discuss%20a%20website%20project." class="btn btn-pill-accent" target="_blank" rel="noopener">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
+                    <span>Connect on WhatsApp</span>
+                </a>
+                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation Menu">
+                    <span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="drawer-inner">
+            <a href="#services" class="drawer-link"><span class="nav-num">01</span> Services</a>
+            <a href="#methodology" class="drawer-link"><span class="nav-num">02</span> Approach</a>
+            <a href="#work" class="drawer-link"><span class="nav-num">03</span> Selected Work</a>
+            <a href="#contact" class="drawer-link"><span class="nav-num">04</span> Contact</a>
+            <a href="https://wa.me/94768933421" class="btn btn-pill-accent drawer-cta" target="_blank" rel="noopener">
+                Chat on WhatsApp (076 893 3421)
+            </a>
+        </div>
     </div>
 
-    <!-- Hero -->
-    <section class="hero">
-        <div class="container hero-content">
-            <div class="hero-eyebrow">
-                <span class="dot"></span>
-                Available for new projects in Sri Lanka
-            </div>
-            <h1>
-                I build <span class="gradient">websites that bring you more customers</span>, not just look pretty.
-            </h1>
-            <p>
-                High-converting, mobile-fast websites & WhatsApp booking systems for hotels, restaurants, jewellers, and local businesses across Western Province and beyond.
-            </p>
-            <div class="hero-actions">
-                <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20to%20discuss%20a%20website%20for%20my%20business." class="btn-primary">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
-                    Start a Project on WhatsApp
-                </a>
-                <a href="#work" class="btn-secondary">
-                    See My Work &darr;
-                </a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Businesses Audited</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">3x</div>
-                    <div class="stat-label">Avg. Mobile Load Improvement</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">24hr</div>
-                    <div class="stat-label">Turnaround on Audits</div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="site-container">
+            <div class="hero-grid">
+                <div class="hero-main">
+                    <div class="pill-badge">
+                        <span class="status-indicator"></span>
+                        <span>Available for projects in Sri Lanka &bull; Western Province</span>
+                    </div>
 
-    <!-- Services -->
-    <section class="section" id="services">
-        <div class="container">
-            <span class="tag">Services</span>
-            <h2 class="section-title">Everything your business needs online.</h2>
-            <p class="section-sub">From modern redesigns to WhatsApp booking systems - I handle the full digital presence so you can focus on running your business.</p>
+                    <h1 class="hero-title">
+                        Websites engineered for <span class="text-serif-accent">clarity</span>, speed, and real revenue.
+                    </h1>
 
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="images/service-web-design.jpg" alt="Website Design &amp; Redesign — Sleek dark UI layout on a laptop screen" loading="lazy">
+                    <p class="hero-subtitle">
+                        I help hotels, luxury jewellers, and local businesses turn casual mobile visitors into direct bookings and confirmed inquiries—eliminating high OTA commissions and technical friction.
+                    </p>
+
+                    <div class="hero-cta-group">
+                        <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20a%20free%20website%20audit%20for%20my%20business." class="btn btn-primary" target="_blank" rel="noopener">
+                            <span>Request a Free Website Audit</span>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="#work" class="btn btn-secondary">
+                            <span>Explore Selected Work</span>
+                        </a>
                     </div>
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-                    </div>
-                    <h3>Website Design &amp; Redesign</h3>
-                    <p>Clean, modern, mobile-first websites that reflect the quality of your physical business. Built to load fast and convert visitors into paying customers.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="images/service-whatsapp.jpg" alt="WhatsApp Booking Systems — Abstract green messaging network concept" loading="lazy">
+
+                <div class="hero-meta-panel">
+                    <div class="meta-card">
+                        <div class="meta-card-header">
+                            <span class="meta-num">01</span>
+                            <span class="meta-tag">Direct WhatsApp Inquiries</span>
+                        </div>
+                        <p class="meta-card-body">Instant 1-tap mobile booking flows capturing over 80% of local event and reservation leads.</p>
                     </div>
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--green);"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+
+                    <div class="meta-card">
+                        <div class="meta-card-header">
+                            <span class="meta-num">02</span>
+                            <span class="meta-tag">Sub-Second Mobile Speeds</span>
+                        </div>
+                        <p class="meta-card-body">Lightweight static builds eliminating slow legacy CMS bloat and reducing mobile bounce rates.</p>
                     </div>
-                    <h3>WhatsApp Booking Systems</h3>
-                    <p>1-tap WhatsApp inquiry buttons, floating chat widgets, and automated greeting messages that connect prospects to your team in real time.</p>
+
+                    <div class="meta-card">
+                        <div class="meta-card-header">
+                            <span class="meta-num">03</span>
+                            <span class="meta-tag">Local SEO Precision</span>
+                        </div>
+                        <p class="meta-card-body">Schema JSON-LD & structured metadata designed for high-intent Google Maps & Search discovery.</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="images/service-seo.jpg" alt="Local SEO &amp; Google Rankings — Glowing digital search and location map graphic" loading="lazy">
-                    </div>
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/><circle cx="12" cy="12" r="4"/></svg>
-                    </div>
-                    <h3>Local SEO &amp; Google Rankings</h3>
-                    <p>Schema markup, Google Business optimization, meta descriptions, and structured data that help your business appear first in local search results.</p>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="stats-ribbon">
+                <div class="stat-unit">
+                    <div class="stat-val">50+</div>
+                    <div class="stat-label">Local Websites Audited</div>
                 </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="images/service-mobile.jpg" alt="Mobile-First Optimization — Responsive smartphone interface with dark tones" loading="lazy">
-                    </div>
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-                    </div>
-                    <h3>Mobile-First Optimization</h3>
-                    <p>Click-to-call links, sticky action bars, compressed images, and instant loading - because 85% of your customers browse on their phones.</p>
+                <div class="stat-divider"></div>
+                <div class="stat-unit">
+                    <div class="stat-val">1.2<span class="stat-unit-sm">s</span></div>
+                    <div class="stat-label">Average Mobile Load Time</div>
                 </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="images/service-forms.jpg" alt="Inquiry &amp; Booking Forms — Elegant dark digital form interface aesthetic" loading="lazy">
-                    </div>
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg>
-                    </div>
-                    <h3>Inquiry &amp; Booking Forms</h3>
-                    <p>Custom multi-step inquiry forms for wedding banquets, hotel reservations, restaurant bookings, and appointment scheduling - capturing leads 24/7.</p>
+                <div class="stat-divider"></div>
+                <div class="stat-unit">
+                    <div class="stat-val">+78<span class="stat-unit-sm">%</span></div>
+                    <div class="stat-label">Direct Inquiry Lift</div>
                 </div>
-                <div class="service-card">
-                    <div class="service-image">
-                        <img src="images/service-speed.jpg" alt="Speed &amp; Performance Audits — High-speed glowing performance lines and metrics" loading="lazy">
-                    </div>
-                    <div class="service-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                    </div>
-                    <h3>Speed &amp; Performance Audits</h3>
-                    <p>Free website audits identifying speed bottlenecks, broken mobile layouts, missing SEO, and conversion friction points holding your business back.</p>
+                <div class="stat-divider"></div>
+                <div class="stat-unit">
+                    <div class="stat-val">24<span class="stat-unit-sm">h</span></div>
+                    <div class="stat-label">Audit Turnaround</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process -->
-    <section class="section" id="process" style="background: var(--bg-secondary);">
-        <div class="container">
-            <div style="text-align: center;">
-                <span class="tag">How It Works</span>
-                <h2 class="section-title" style="max-width: 100%;">Simple. Fast. No hassle.</h2>
-                <p class="section-sub" style="margin: 0 auto;">From first message to live website in as little as one week.</p>
+    <!-- Section 01: Core Services -->
+    <section class="content-section" id="services">
+        <div class="site-container">
+            <div class="section-header">
+                <div class="section-label">
+                    <span class="num-accent">01</span>
+                    <span class="label-text">Capabilities</span>
+                </div>
+                <h2 class="section-heading">Core digital services designed for growth.</h2>
+                <p class="section-description">A systematic, transparent approach to website design and digital presence for Sri Lankan enterprises.</p>
             </div>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">01</div>
-                    <h3>WhatsApp Chat</h3>
-                    <p>Send me a message. We'll discuss your business, goals, and what your website needs.</p>
+
+            <div class="services-bento">
+                <div class="bento-card bento-hero">
+                    <div class="bento-badge">Primary Offering</div>
+                    <h3 class="bento-title">High-Converting Website Design &amp; Re-engineering</h3>
+                    <p class="bento-text">Modern, mobile-first websites tailored to reflect the authentic prestige of your physical property, venue, or showroom. Built clean with zero bloat so your brand stands out immediately.</p>
+                    <ul class="bento-checklist">
+                        <li><span>&bull;</span> Bespoke design tailored to local market expectations</li>
+                        <li><span>&bull;</span> Fluid responsive scaling across all phone &amp; tablet viewports</li>
+                        <li><span>&bull;</span> Commission-free direct guest &amp; client reservation journeys</li>
+                    </ul>
                 </div>
-                <div class="process-step">
-                    <div class="step-number">02</div>
-                    <h3>Free Site Audit</h3>
-                    <p>I audit your current website (or competitor sites) and share a visual mockup of the improvements.</p>
+
+                <div class="bento-card">
+                    <div class="bento-icon-wrapper">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    </div>
+                    <h3 class="bento-title">WhatsApp Booking Systems</h3>
+                    <p class="bento-text">Persistent floating concierges, pre-filled quotation messages, and 1-tap booking triggers connecting ready-to-buy clients directly to your team.</p>
                 </div>
-                <div class="process-step">
-                    <div class="step-number">03</div>
-                    <h3>Design & Build</h3>
-                    <p>I design and develop your new website with mobile-first layouts, booking systems, and WhatsApp integration.</p>
+
+                <div class="bento-card">
+                    <div class="bento-icon-wrapper">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 9.17l4.24-4.24M14.83 14.83l4.24 4.24M9.17 14.83l-4.24 4.24"/><circle cx="12" cy="12" r="4"/></svg>
+                    </div>
+                    <h3 class="bento-title">Local SEO &amp; Rich Snippets</h3>
+                    <p class="bento-text">LodgingBusiness, MedicalBusiness, and LocalBusiness Schema JSON-LD markup ensuring top rank visibility across Google Search &amp; Maps.</p>
                 </div>
-                <div class="process-step">
-                    <div class="step-number">04</div>
-                    <h3>Launch & Grow</h3>
-                    <p>Your site goes live. I provide ongoing support, SEO optimization, and conversion tracking.</p>
+
+                <div class="bento-card">
+                    <div class="bento-icon-wrapper">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <h3 class="bento-title">Speed Optimization &amp; Payloads</h3>
+                    <p class="bento-text">Lossless asset compression, next-gen WebP formatting, and modern caching eliminating 3-5MB page weight bottlenecks on mobile networks.</p>
+                </div>
+
+                <div class="bento-card">
+                    <div class="bento-icon-wrapper">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg>
+                    </div>
+                    <h3 class="bento-title">2-Step Interactive Inquiry Forms</h3>
+                    <p class="bento-text">Lightweight banquet hall date-checkers, custom jewelry appraisal selectors, and doctor channelling widgets that guests complete in 20 seconds.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio -->
-    <section class="section" id="work">
-        <div class="container">
-            <span class="tag">Recent Work</span>
-            <h2 class="section-title">Websites that deliver results.</h2>
-            <p class="section-sub">Real improvements for real businesses - from coastal hotels to fine jewellery showrooms.</p>
+    <!-- Section 02: Methodology -->
+    <section class="content-section bg-tint" id="methodology">
+        <div class="site-container">
+            <div class="section-header">
+                <div class="section-label">
+                    <span class="num-accent">02</span>
+                    <span class="label-text">Methodology</span>
+                </div>
+                <h2 class="section-heading">A clear, transparent four-step process.</h2>
+                <p class="section-description">From initial audit to production deployment in as little as 7 to 10 days—no delays, no technical jargon.</p>
+            </div>
 
-            <div class="portfolio-grid">
-                <!-- Case Study 1 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-preview">
-                        <img src="images/resort-redesign.jpg" alt="Boutique Resort Redesign" loading="lazy">
-                        <span class="portfolio-badge">Kalutara Coast</span>
-                    </div>
-                    <div class="portfolio-content">
-                        <div class="portfolio-cat">Hotel & Hospitality</div>
-                        <h3>Boutique Beach Resort Redesign</h3>
-                        <p>Transformed an outdated (2018) layout into a luxury mobile-first experience. Added direct day-outing inquiry flows and vibrant room visuals.</p>
-                        <ul class="portfolio-highlights">
-                            <li>+78% Direct Booking Inquiries</li>
-                            <li>1.2s Mobile Load Time</li>
-                            <li>WhatsApp Concierge</li>
-                        </ul>
-                    </div>
+            <div class="steps-flow">
+                <div class="flow-card">
+                    <div class="flow-num-badge">01</div>
+                    <h4 class="flow-title">Audit &amp; Discovery</h4>
+                    <p class="flow-text">We inspect your current site on mobile devices, pinpointing speed lags, missing tap-to-call links, and lost booking opportunities.</p>
                 </div>
 
-                <!-- Case Study 2 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-preview">
+                <div class="flow-card">
+                    <div class="flow-num-badge">02</div>
+                    <h4 class="flow-title">Visual Concept Mockup</h4>
+                    <p class="flow-text">Before touching any code, I provide a clean visual preview of your revamped mobile experience and WhatsApp booking flow.</p>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-num-badge">03</div>
+                    <h4 class="flow-title">Engineering &amp; Speed Build</h4>
+                    <p class="flow-text">We build your site with clean, accessible markup, lightning-fast assets, and seamless WhatsApp inquiry integration.</p>
+                </div>
+
+                <div class="flow-card">
+                    <div class="flow-num-badge">04</div>
+                    <h4 class="flow-title">Deploy &amp; Verify</h4>
+                    <p class="flow-text">Worldwide fast hosting on Vercel with zero downtime, instant SSL certificates, and Google Local SEO indexing setup.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 03: Selected Work -->
+    <section class="content-section" id="work">
+        <div class="site-container">
+            <div class="section-header">
+                <div class="section-label">
+                    <span class="num-accent">03</span>
+                    <span class="label-text">Selected Work</span>
+                </div>
+                <h2 class="section-heading">Proven case studies in Western Province.</h2>
+                <p class="section-description">Real results engineered for hotels, retail jewelers, and waterfront venues.</p>
+            </div>
+
+            <div class="case-studies-grid">
+                <!-- Case Study 01 -->
+                <article class="case-card">
+                    <div class="case-media">
+                        <img src="images/resort-redesign.jpg" alt="Boutique Beach Resort Redesign" loading="lazy">
+                        <div class="case-tag-pill">Kalutara Coast</div>
+                    </div>
+                    <div class="case-body">
+                        <div class="case-category">Hospitality &bull; Boutique Resort</div>
+                        <h3 class="case-title">Boutique Beachfront Resort Redesign</h3>
+                        <p class="case-description">Transformed an outdated multi-megabyte template into a high-speed, mobile-first retreat showcase with instant WhatsApp day-outing packages.</p>
+                        
+                        <div class="case-metrics">
+                            <div class="metric-pill">
+                                <span class="metric-num">+78%</span>
+                                <span class="metric-desc">Direct Inquiries</span>
+                            </div>
+                            <div class="metric-pill">
+                                <span class="metric-num">1.2s</span>
+                                <span class="metric-desc">Mobile Load</span>
+                            </div>
+                            <div class="metric-pill">
+                                <span class="metric-num">1-Tap</span>
+                                <span class="metric-desc">WhatsApp Concierge</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Case Study 02 -->
+                <article class="case-card">
+                    <div class="case-media">
                         <img src="images/jewellery-showroom.jpg" alt="Fine Jewellery Showroom" loading="lazy">
-                        <span class="portfolio-badge">Panadura</span>
+                        <div class="case-tag-pill">Panadura</div>
                     </div>
-                    <div class="portfolio-content">
-                        <div class="portfolio-cat">Luxury Retail</div>
-                        <h3>Gem & Jewellery Digital Catalog</h3>
-                        <p>Created a minimalist, luxury showroom website with high-resolution gem galleries and instant WhatsApp pricing inquiries for international buyers.</p>
-                        <ul class="portfolio-highlights">
-                            <li>2.5x Inquiry Conversion</li>
-                            <li>Google Search High-Ranking</li>
-                            <li>Custom Jewelry Inquiry Form</li>
-                        </ul>
+                    <div class="case-body">
+                        <div class="case-category">Luxury Retail &bull; Gems</div>
+                        <h3 class="case-title">Ceylon Sapphire &amp; Custom Jewelry Showcase</h3>
+                        <p class="case-description">Created an editorial luxury catalog highlighting custom jewelry craftsmanship, enabling diaspora and international buyers to request WhatsApp design quotes.</p>
+                        
+                        <div class="case-metrics">
+                            <div class="metric-pill">
+                                <span class="metric-num">2.5x</span>
+                                <span class="metric-desc">Inquiry Conversion</span>
+                            </div>
+                            <div class="metric-pill">
+                                <span class="metric-num">Top 3</span>
+                                <span class="metric-desc">Local Google Rank</span>
+                            </div>
+                            <div class="metric-pill">
+                                <span class="metric-num">Custom</span>
+                                <span class="metric-desc">Appraisal Form</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </article>
 
-                <!-- Case Study 3 -->
-                <div class="portfolio-card">
-                    <div class="portfolio-preview">
-                        <img src="images/coastal-dining.jpg" alt="Coastal Dining & Events" loading="lazy">
-                        <span class="portfolio-badge">Wadduwa</span>
+                <!-- Case Study 03 -->
+                <article class="case-card">
+                    <div class="case-media">
+                        <img src="images/coastal-dining.jpg" alt="Coastal Dining and Events" loading="lazy">
+                        <div class="case-tag-pill">Wadduwa</div>
                     </div>
-                    <div class="portfolio-content">
-                        <div class="portfolio-cat">Dining & Events</div>
-                        <h3>Beachfront Restaurant & Weddings</h3>
-                        <p>Designed a stunning restaurant and banquet venue website. Features downloadable menus, 3d-like gallery, and dedicated wedding package inquiry forms.</p>
-                        <ul class="portfolio-highlights">
-                            <li>100% Mobile-Responsive</li>
-                            <li>Over 400kb Menu Downloads</li>
-                            <li>Instant WhatsApp Reservations</li>
-                        </ul>
+                    <div class="case-body">
+                        <div class="case-category">Dining &amp; Banquets</div>
+                        <h3 class="case-title">Beachfront Banquet &amp; Wedding Venue</h3>
+                        <p class="case-description">Built a dedicated wedding banquet availability portal allowing prospective couples to check wedding packages, download PDF menus, and book dates in 30 seconds.</p>
+                        
+                        <div class="case-metrics">
+                            <div class="metric-pill">
+                                <span class="metric-num">100%</span>
+                                <span class="metric-desc">Mobile Responsive</span>
+                            </div>
+                            <div class="metric-pill">
+                                <span class="metric-num">&lt;350KB</span>
+                                <span class="metric-desc">Payload Weight</span>
+                            </div>
+                            <div class="metric-pill">
+                                <span class="metric-num">Instant</span>
+                                <span class="metric-desc">Hall Date Check</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="section" id="contact">
-        <div class="container">
-            <div class="cta-section">
-                <span class="tag">Let's Work Together</span>
-                <h2>Ready to turn your website into your best salesperson?</h2>
-                <p>Send me a quick WhatsApp message. I'll reply within a few hours with a free audit of your current site and a clear plan to improve it.</p>
-                <div class="cta-actions">
-                    <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20a%20free%20website%20audit%20for%20my%20business." class="btn-primary">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
-                        Get a Free Audit on WhatsApp
-                    </a>
-                    <a href="mailto:nilupul.maheema@gmail.com" class="btn-secondary">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        nilupul.maheema@gmail.com
-                    </a>
-                    <a href="tel:+94768933421" class="btn-secondary">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        076 893 3421
-                    </a>
+    <!-- Section 04: Contact / CTA -->
+    <section class="content-section bg-gradient-brand" id="contact">
+        <div class="site-container">
+            <div class="cta-banner">
+                <div class="cta-inner">
+                    <div class="section-label center-label">
+                        <span class="num-accent">04</span>
+                        <span class="label-text">Get In Touch</span>
+                    </div>
+
+                    <h2 class="cta-heading">Ready to transform your business's mobile conversion?</h2>
+                    <p class="cta-sub">Drop me a quick note on WhatsApp. I'll review your current website and send you a complimentary 3-point digital growth audit with no obligations.</p>
+
+                    <div class="cta-channels">
+                        <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20a%20free%20website%20audit%20for%20my%20business." class="btn btn-primary btn-large" target="_blank" rel="noopener">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
+                            <span>WhatsApp: 076 893 3421</span>
+                        </a>
+
+                        <a href="mailto:nilupul.maheema@gmail.com" class="btn btn-secondary btn-large">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <span>nilupul.maheema@gmail.com</span>
+                        </a>
+
+                        <a href="tel:+94768933421" class="btn btn-secondary btn-large">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <span>Direct Call</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Nilupul Siriwardena. Web Designer &amp; Digital Consultant based in Sri Lanka.</p>
-            <div style="margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
-                <a href="mailto:nilupul.maheema@gmail.com" style="color: var(--accent-light); text-decoration: none;">nilupul.maheema@gmail.com</a>
-                <span style="color: var(--text-muted);">|</span>
-                <a href="tel:+94768933421" style="color: var(--text-secondary); text-decoration: none;">076 893 3421</a>
-                <span style="color: var(--text-muted);">|</span>
-                <a href="https://wa.me/94768933421" style="color: var(--green); text-decoration: none;">WhatsApp</a>
+    <footer class="site-footer">
+        <div class="site-container">
+            <div class="footer-grid">
+                <div class="footer-identity">
+                    <span class="footer-logo">nilupul<span class="logo-dot">.</span>dev</span>
+                    <p class="footer-tagline">Web Designer &amp; Digital Growth Consultant based in Kalutara, Sri Lanka.</p>
+                </div>
+
+                <div class="footer-nav-links">
+                    <a href="#services">Services</a>
+                    <a href="#methodology">Approach</a>
+                    <a href="#work">Work</a>
+                    <a href="#contact">Contact</a>
+                    <a href="https://wa.me/94768933421" target="_blank" rel="noopener">WhatsApp Chat</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Nilupul Siriwardena. All rights reserved. Designed to Straightforward Brand Guidelines.</p>
+                <div class="footer-legal">
+                    <span>Kalutara &bull; Wadduwa &bull; Panadura &bull; Colombo</span>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business." class="whatsapp-float" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
+    <!-- Minimalist Floating WhatsApp Action Pill -->
+    <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business." class="whatsapp-float-pill" target="_blank" rel="noopener" aria-label="Direct WhatsApp Chat">
+        <span class="whatsapp-pill-dot"></span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
+        <span class="whatsapp-pill-label">Inquire on WhatsApp</span>
     </a>
 
     <script>
-        // Navbar scroll effect
+        // Header background blur upon scrolling
+        const header = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+            if (window.scrollY > 30) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
 
-        // Mobile menu toggle
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-        if (hamburger && mobileMenu) {
-            hamburger.addEventListener('click', () => {
-                mobileMenu.classList.toggle('open');
+        // Mobile drawer toggle
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        if (hamburgerBtn && mobileDrawer) {
+            hamburgerBtn.addEventListener('click', () => {
+                hamburgerBtn.classList.toggle('active');
+                mobileDrawer.classList.toggle('open');
             });
-            document.querySelectorAll('.mobile-link').forEach(link => {
+
+            document.querySelectorAll('.drawer-link, .drawer-cta').forEach(link => {
                 link.addEventListener('click', () => {
-                    mobileMenu.classList.remove('open');
+                    hamburgerBtn.classList.remove('active');
+                    mobileDrawer.classList.remove('open');
                 });
             });
         }
-
-        // Intersection Observer for fade-in animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.service-card, .portfolio-card, .process-step').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
-            observer.observe(el);
-        });
     </script>
 </body>
 </html>
