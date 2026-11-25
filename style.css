@@ -1,7 +1,7 @@
 /* ==========================================================================
    nilupul. — Metic Studio Inspired Swiss Minimalist Design System
    Aesthetic: Ultra-clean, high-precision Swiss design, technical measurement
-   ruler, photorealistic interactive magnifying glass, and live canvas inspector.
+   ruler, photorealistic interactive magnifying glass, and true optical zoom.
    ========================================================================== */
 
 :root {
@@ -481,14 +481,14 @@ body.loupe-held {
     background-color: var(--accent-red);
 }
 
-/* Secret Ink text (Hidden until inspected) */
+/* Secret Ink text (Revealed by Loupe Zoom View) */
 .secret-ink-container {
     position: absolute;
     font-family: var(--font-mono);
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     font-weight: 700;
     color: var(--accent-red);
-    opacity: 0.15;
+    opacity: 0.12;
     pointer-events: none;
     letter-spacing: 0.04em;
     transition: opacity 0.3s ease;
@@ -588,7 +588,52 @@ body.loupe-held .loupe-home-anchor {
 }
 
 /* ==========================================================================
-   FLOATING INTERACTIVE LOUPE (Live Canvas Inspector When Held)
+   OPTICAL ZOOM VIEWPORT (Clipped Circular Magnification)
+   ========================================================================== */
+.loupe-zoom-viewport {
+    position: fixed;
+    inset: 0;
+    z-index: 910;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0;
+    background: var(--canvas-bg);
+    clip-path: circle(92px at -500px -500px);
+    -webkit-clip-path: circle(92px at -500px -500px);
+    transition: opacity 0.25s ease;
+    box-shadow: inset 0 0 24px rgba(0, 0, 0, 0.15);
+}
+
+.loupe-zoom-viewport.is-active {
+    opacity: 1;
+}
+
+.loupe-cloned-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform-origin: 0 0;
+    will-change: transform;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* In the optical zoom view, reveal hidden secret ink cleanly */
+.loupe-zoom-viewport .secret-ink-container {
+    opacity: 1 !important;
+    color: var(--accent-red) !important;
+}
+
+.loupe-zoom-viewport .secret-ink-text {
+    background: rgba(255, 56, 35, 0.12);
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    border: 1px dashed var(--accent-red);
+}
+
+/* ==========================================================================
+   FLOATING INTERACTIVE LOUPE SHELL
    ========================================================================== */
 .floating-interactive-loupe {
     position: fixed;
@@ -596,7 +641,7 @@ body.loupe-held .loupe-home-anchor {
     left: 0;
     width: 480px;
     height: calc(480px * 881 / 760);
-    z-index: 999;
+    z-index: 930;
     pointer-events: none;
     visibility: hidden;
     opacity: 0;
@@ -620,62 +665,48 @@ body.loupe-held .loupe-home-anchor {
     user-select: none;
 }
 
-/* Lens Viewport: Perfectly aligned with the glass opening */
-.loupe-lens-viewport {
+/* Center target crosshair inside optical lens */
+.lens-center-target {
     position: absolute;
     left: calc(480px * 0.4079);
     top: calc(480px * (881 / 760) * 0.3816);
     transform: translate(-50%, -50%);
-    width: 190px;
-    height: 190px;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 
-        inset 0 0 0 2px rgba(255, 255, 255, 0.5),
-        inset 0 0 26px rgba(0, 0, 0, 0.2);
+    width: 24px;
+    height: 24px;
     pointer-events: none;
-    background: #FFFFFF;
+    z-index: 935;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#loupeCanvas {
+.lens-target-ring {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--accent-red);
+    border-radius: 50%;
+    opacity: 0.85;
 }
 
-.lens-glass-bezel {
-    position: absolute;
-    inset: 2px;
+.lens-target-dot {
+    width: 4px;
+    height: 4px;
     border-radius: 50%;
-    border: 1px dashed rgba(255, 56, 35, 0.3);
-    pointer-events: none;
+    background-color: var(--accent-red);
 }
 
 .lens-glass-glare {
     position: absolute;
-    top: 6%;
-    left: 12%;
-    width: 76%;
-    height: 38%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 80%);
+    left: calc(480px * 0.4079 - 70px);
+    top: calc(480px * (881 / 760) * 0.3816 - 70px);
+    width: 140px;
+    height: 75px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0) 80%);
     border-radius: 50% 50% 40% 40%;
     transform: rotate(-25deg);
     pointer-events: none;
-}
-
-.lens-status-label {
-    position: absolute;
-    bottom: 12px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    font-family: var(--font-mono);
-    font-size: 8px;
-    font-weight: 700;
-    color: var(--accent-red);
-    letter-spacing: 0.05em;
-    pointer-events: none;
+    z-index: 934;
 }
 
 .loupe-drop-indicator {
