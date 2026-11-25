@@ -3,441 +3,720 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nilupul Siriwardena — Web Design & Digital Growth</title>
-    <meta name="description" content="Precision web design, mobile optimization, and WhatsApp booking systems for hotels, luxury brands, and established businesses across Sri Lanka.">
+    <title>nilupul. — Web design &amp; automation studio, Western Province</title>
+    <meta name="description" content="Web design and automation studio from Western Province, Sri Lanka. One person, both sides: design and code. High-converting websites for hotels, luxury brands, and local businesses.">
     
     <!-- Open Graph Metadata -->
-    <meta property="og:title" content="Nilupul Siriwardena — Web Design & Digital Growth">
-    <meta property="og:description" content="Precision web design & direct WhatsApp booking systems for Sri Lankan hotels, jewelers & local enterprises.">
+    <meta property="og:title" content="nilupul. — Web design &amp; automation studio">
+    <meta property="og:description" content="Web design and automation studio from Western Province, Sri Lanka. One person, both sides: design and code.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="images/resort-redesign.jpg">
 
-    <!-- Fonts: Rethink Sans (Primary) + Hedvig Letters Serif (Editorial Display) as defined in Figma Brand Guidelines -->
+    <!-- Fonts: Plus Jakarta Sans (Editorial Swiss Grotesk) & Space Mono (Technical Precision) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Rethink+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="metic-body">
 
-    <!-- Top Navigation -->
-    <header class="site-header" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="brand-logo">
-                <span class="logo-mark"></span>
-                <span class="logo-text">nilupul<span class="logo-dot">.</span>dev</span>
+    <!-- Left Technical Margin Ruler (Dynamic & Continuous) -->
+    <aside class="canvas-ruler" id="canvasRuler" aria-hidden="true">
+        <div class="ruler-track" id="rulerTrack">
+            <!-- Dynamically populated or static ruler marks -->
+        </div>
+    </aside>
+
+    <!-- Top Floating Header -->
+    <header class="studio-header" id="studioHeader">
+        <div class="header-inner">
+            <a href="#" class="studio-logo" aria-label="nilupul. homepage">
+                <span class="logo-name">nilupul<span class="dot-accent">.</span></span>
+                <span class="sound-wave" title="Active Studio Status">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </span>
             </a>
-            
-            <nav class="desktop-nav">
-                <ol class="nav-menu">
-                    <li><a href="#services"><span class="nav-num">01</span>Services</a></li>
-                    <li><a href="#methodology"><span class="nav-num">02</span>Approach</a></li>
-                    <li><a href="#work"><span class="nav-num">03</span>Selected Work</a></li>
-                    <li><a href="#contact"><span class="nav-num">04</span>Contact</a></li>
-                </ol>
-            </nav>
 
-            <div class="nav-actions">
-                <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20to%20discuss%20a%20website%20project." class="btn btn-pill-accent" target="_blank" rel="noopener">
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
-                    <span>Connect on WhatsApp</span>
+            <div class="header-controls">
+                <button class="xray-toggle-btn" id="xrayToggle" title="Toggle Blueprint / Wireframe Mode">
+                    <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <span class="btn-text">X-ray</span>
+                    <span class="xray-indicator"></span>
+                </button>
+
+                <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20to%20start%20a%20website%20project%20with%20you." class="header-nav-link" target="_blank" rel="noopener">
+                    Start a project
                 </a>
-                <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle Navigation Menu">
-                    <span></span><span></span>
+
+                <button class="menu-pill-btn" id="menuToggle" aria-label="Toggle navigation menu">
+                    <span class="menu-dot"></span>
+                    <span class="menu-lines">
+                        <span></span>
+                        <span></span>
+                    </span>
                 </button>
             </div>
         </div>
+        <div class="header-edge-dot" aria-hidden="true"></div>
     </header>
 
-    <!-- Mobile Drawer -->
-    <div class="mobile-drawer" id="mobileDrawer">
-        <div class="drawer-inner">
-            <a href="#services" class="drawer-link"><span class="nav-num">01</span> Services</a>
-            <a href="#methodology" class="drawer-link"><span class="nav-num">02</span> Approach</a>
-            <a href="#work" class="drawer-link"><span class="nav-num">03</span> Selected Work</a>
-            <a href="#contact" class="drawer-link"><span class="nav-num">04</span> Contact</a>
-            <a href="https://wa.me/94768933421" class="btn btn-pill-accent drawer-cta" target="_blank" rel="noopener">
-                Chat on WhatsApp (076 893 3421)
-            </a>
+    <!-- Slide-out Navigation Drawer -->
+    <div class="studio-drawer" id="studioDrawer">
+        <div class="drawer-backdrop" id="drawerBackdrop"></div>
+        <div class="drawer-panel">
+            <div class="drawer-top">
+                <span class="drawer-index-label">[NAVIGATION]</span>
+                <button class="drawer-close-btn" id="drawerClose" aria-label="Close menu">&times;</button>
+            </div>
+            <nav class="drawer-nav">
+                <a href="#work" class="drawer-item"><span class="item-num">01</span><span class="item-name">Selected Work</span></a>
+                <a href="#services" class="drawer-item"><span class="item-num">02</span><span class="item-name">Capabilities</span></a>
+                <a href="#approach" class="drawer-item"><span class="item-num">03</span><span class="item-name">Methodology</span></a>
+                <a href="#contact" class="drawer-item"><span class="item-num">04</span><span class="item-name">Contact</span></a>
+            </nav>
+            <div class="drawer-footer">
+                <div class="drawer-contact-info">
+                    <span class="info-label">Direct Communication</span>
+                    <a href="https://wa.me/94768933421" target="_blank" rel="noopener" class="info-val">WhatsApp: 076 893 3421</a>
+                    <a href="mailto:nilupul.maheema@gmail.com" class="info-val">nilupul.maheema@gmail.com</a>
+                </div>
+                <div class="drawer-meta-tag">Western Province &bull; Sri Lanka &bull; UTC+5:30</div>
+            </div>
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="site-container">
-            <div class="hero-grid">
-                <div class="hero-main">
-                    <div class="pill-badge">
-                        <span class="status-indicator"></span>
-                        <span>Available for projects in Sri Lanka &bull; Western Province</span>
+    <!-- Main Content Canvas -->
+    <main class="canvas-main" id="canvasMain">
+
+        <!-- HERO SECTION (Authentic Metic Studio Structure) -->
+        <section class="hero-viewport" id="hero">
+            
+            <!-- Target concentric element (Easter egg #1) -->
+            <div class="canvas-target-node" style="top: 48%; left: 51%;" data-egg="Target Marker 01">
+                <div class="target-ring"></div>
+                <div class="target-center-dot"></div>
+            </div>
+
+            <!-- Draggable Interactive Magnifying Glass -->
+            <div class="interactive-magnifier" id="magnifyingGlass" role="region" aria-label="Interactive Magnifier Lens">
+                <div class="magnifier-lens" id="magnifierLens">
+                    <!-- Glass glare & optics -->
+                    <div class="lens-glass-reflection"></div>
+                    <div class="lens-bezel-marks"></div>
+                    
+                    <!-- Inner red instruction circle -->
+                    <div class="lens-content-bubble" id="lensPrompt">
+                        <span class="lens-badge-dot"></span>
+                        <div class="lens-text">
+                            <span>Pick</span>
+                            <span>me up.</span>
+                        </div>
+                        <svg class="lens-arrow-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="7" y1="7" x2="17" y2="17"></line>
+                            <polyline points="17 7 17 17 7 17"></polyline>
+                        </svg>
                     </div>
 
-                    <h1 class="hero-title">
-                        Websites engineered for <span class="text-serif-accent">clarity</span>, speed, and real revenue.
-                    </h1>
+                    <!-- HUD readout inside lens -->
+                    <div class="lens-hud-readout" id="lensHud">
+                        <span class="hud-coords" id="hudCoords">X: 620 Y: 280</span>
+                        <span class="hud-zoom">2.5&times; OPTICS</span>
+                    </div>
+                </div>
 
-                    <p class="hero-subtitle">
-                        I help hotels, luxury jewellers, and local businesses turn casual mobile visitors into direct bookings and confirmed inquiries—eliminating high OTA commissions and technical friction.
+                <!-- Realistic metallic grooved handle -->
+                <div class="magnifier-handle">
+                    <div class="handle-collar"></div>
+                    <div class="handle-grip">
+                        <div class="grip-stripe"></div>
+                        <div class="grip-stripe"></div>
+                        <div class="grip-stripe"></div>
+                        <div class="grip-stripe"></div>
+                        <div class="grip-stripe"></div>
+                        <div class="grip-stripe"></div>
+                    </div>
+                    <div class="handle-cap"></div>
+                </div>
+            </div>
+
+            <!-- Hero Bottom Content Grid -->
+            <div class="hero-bottom-bar">
+                <!-- Massive Left Headline -->
+                <div class="hero-headline-block">
+                    <h1 class="hero-headline">Take a closer look<span class="dot-accent">.</span></h1>
+                </div>
+
+                <!-- Right Studio Bio & Action Buttons -->
+                <div class="hero-bio-block">
+                    <p class="studio-bio-text">
+                        Web design and automation studio from Western Province, Sri Lanka. One person, both sides: design and code.
                     </p>
 
-                    <div class="hero-cta-group">
-                        <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20a%20free%20website%20audit%20for%20my%20business." class="btn btn-primary" target="_blank" rel="noopener">
-                            <span>Request a Free Website Audit</span>
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </a>
-                        <a href="#work" class="btn btn-secondary">
-                            <span>Explore Selected Work</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="hero-meta-panel">
-                    <div class="meta-card">
-                        <div class="meta-card-header">
-                            <span class="meta-num">01</span>
-                            <span class="meta-tag">Direct WhatsApp Inquiries</span>
-                        </div>
-                        <p class="meta-card-body">Instant 1-tap mobile booking flows capturing over 80% of local event and reservation leads.</p>
-                    </div>
-
-                    <div class="meta-card">
-                        <div class="meta-card-header">
-                            <span class="meta-num">02</span>
-                            <span class="meta-tag">Sub-Second Mobile Speeds</span>
-                        </div>
-                        <p class="meta-card-body">Lightweight static builds eliminating slow legacy CMS bloat and reducing mobile bounce rates.</p>
-                    </div>
-
-                    <div class="meta-card">
-                        <div class="meta-card-header">
-                            <span class="meta-num">03</span>
-                            <span class="meta-tag">Local SEO Precision</span>
-                        </div>
-                        <p class="meta-card-body">Schema JSON-LD & structured metadata designed for high-intent Google Maps & Search discovery.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Stats Bar -->
-            <div class="stats-ribbon">
-                <div class="stat-unit">
-                    <div class="stat-val">50+</div>
-                    <div class="stat-label">Local Websites Audited</div>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-unit">
-                    <div class="stat-val">1.2<span class="stat-unit-sm">s</span></div>
-                    <div class="stat-label">Average Mobile Load Time</div>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-unit">
-                    <div class="stat-val">+78<span class="stat-unit-sm">%</span></div>
-                    <div class="stat-label">Direct Inquiry Lift</div>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-unit">
-                    <div class="stat-val">24<span class="stat-unit-sm">h</span></div>
-                    <div class="stat-label">Audit Turnaround</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 01: Core Services -->
-    <section class="content-section" id="services">
-        <div class="site-container">
-            <div class="section-header">
-                <div class="section-label">
-                    <span class="num-accent">01</span>
-                    <span class="label-text">Capabilities</span>
-                </div>
-                <h2 class="section-heading">Core digital services designed for growth.</h2>
-                <p class="section-description">A systematic, transparent approach to website design and digital presence for Sri Lankan enterprises.</p>
-            </div>
-
-            <div class="services-bento">
-                <div class="bento-card bento-hero">
-                    <div class="bento-badge">Primary Offering</div>
-                    <h3 class="bento-title">High-Converting Website Design &amp; Re-engineering</h3>
-                    <p class="bento-text">Modern, mobile-first websites tailored to reflect the authentic prestige of your physical property, venue, or showroom. Built clean with zero bloat so your brand stands out immediately.</p>
-                    <ul class="bento-checklist">
-                        <li><span>&bull;</span> Bespoke design tailored to local market expectations</li>
-                        <li><span>&bull;</span> Fluid responsive scaling across all phone &amp; tablet viewports</li>
-                        <li><span>&bull;</span> Commission-free direct guest &amp; client reservation journeys</li>
-                    </ul>
-                </div>
-
-                <div class="bento-card">
-                    <div class="bento-icon-wrapper">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                    </div>
-                    <h3 class="bento-title">WhatsApp Booking Systems</h3>
-                    <p class="bento-text">Persistent floating concierges, pre-filled quotation messages, and 1-tap booking triggers connecting ready-to-buy clients directly to your team.</p>
-                </div>
-
-                <div class="bento-card">
-                    <div class="bento-icon-wrapper">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 9.17l4.24-4.24M14.83 14.83l4.24 4.24M9.17 14.83l-4.24 4.24"/><circle cx="12" cy="12" r="4"/></svg>
-                    </div>
-                    <h3 class="bento-title">Local SEO &amp; Rich Snippets</h3>
-                    <p class="bento-text">LodgingBusiness, MedicalBusiness, and LocalBusiness Schema JSON-LD markup ensuring top rank visibility across Google Search &amp; Maps.</p>
-                </div>
-
-                <div class="bento-card">
-                    <div class="bento-icon-wrapper">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-                    </div>
-                    <h3 class="bento-title">Speed Optimization &amp; Payloads</h3>
-                    <p class="bento-text">Lossless asset compression, next-gen WebP formatting, and modern caching eliminating 3-5MB page weight bottlenecks on mobile networks.</p>
-                </div>
-
-                <div class="bento-card">
-                    <div class="bento-icon-wrapper">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg>
-                    </div>
-                    <h3 class="bento-title">2-Step Interactive Inquiry Forms</h3>
-                    <p class="bento-text">Lightweight banquet hall date-checkers, custom jewelry appraisal selectors, and doctor channelling widgets that guests complete in 20 seconds.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 02: Methodology -->
-    <section class="content-section bg-tint" id="methodology">
-        <div class="site-container">
-            <div class="section-header">
-                <div class="section-label">
-                    <span class="num-accent">02</span>
-                    <span class="label-text">Methodology</span>
-                </div>
-                <h2 class="section-heading">A clear, transparent four-step process.</h2>
-                <p class="section-description">From initial audit to production deployment in as little as 7 to 10 days—no delays, no technical jargon.</p>
-            </div>
-
-            <div class="steps-flow">
-                <div class="flow-card">
-                    <div class="flow-num-badge">01</div>
-                    <h4 class="flow-title">Audit &amp; Discovery</h4>
-                    <p class="flow-text">We inspect your current site on mobile devices, pinpointing speed lags, missing tap-to-call links, and lost booking opportunities.</p>
-                </div>
-
-                <div class="flow-card">
-                    <div class="flow-num-badge">02</div>
-                    <h4 class="flow-title">Visual Concept Mockup</h4>
-                    <p class="flow-text">Before touching any code, I provide a clean visual preview of your revamped mobile experience and WhatsApp booking flow.</p>
-                </div>
-
-                <div class="flow-card">
-                    <div class="flow-num-badge">03</div>
-                    <h4 class="flow-title">Engineering &amp; Speed Build</h4>
-                    <p class="flow-text">We build your site with clean, accessible markup, lightning-fast assets, and seamless WhatsApp inquiry integration.</p>
-                </div>
-
-                <div class="flow-card">
-                    <div class="flow-num-badge">04</div>
-                    <h4 class="flow-title">Deploy &amp; Verify</h4>
-                    <p class="flow-text">Worldwide fast hosting on Vercel with zero downtime, instant SSL certificates, and Google Local SEO indexing setup.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 03: Selected Work -->
-    <section class="content-section" id="work">
-        <div class="site-container">
-            <div class="section-header">
-                <div class="section-label">
-                    <span class="num-accent">03</span>
-                    <span class="label-text">Selected Work</span>
-                </div>
-                <h2 class="section-heading">Proven case studies in Western Province.</h2>
-                <p class="section-description">Real results engineered for hotels, retail jewelers, and waterfront venues.</p>
-            </div>
-
-            <div class="case-studies-grid">
-                <!-- Case Study 01 -->
-                <article class="case-card">
-                    <div class="case-media">
-                        <img src="images/resort-redesign.jpg" alt="Boutique Beach Resort Redesign" loading="lazy">
-                        <div class="case-tag-pill">Kalutara Coast</div>
-                    </div>
-                    <div class="case-body">
-                        <div class="case-category">Hospitality &bull; Boutique Resort</div>
-                        <h3 class="case-title">Boutique Beachfront Resort Redesign</h3>
-                        <p class="case-description">Transformed an outdated multi-megabyte template into a high-speed, mobile-first retreat showcase with instant WhatsApp day-outing packages.</p>
-                        
-                        <div class="case-metrics">
-                            <div class="metric-pill">
-                                <span class="metric-num">+78%</span>
-                                <span class="metric-desc">Direct Inquiries</span>
-                            </div>
-                            <div class="metric-pill">
-                                <span class="metric-num">1.2s</span>
-                                <span class="metric-desc">Mobile Load</span>
-                            </div>
-                            <div class="metric-pill">
-                                <span class="metric-num">1-Tap</span>
-                                <span class="metric-desc">WhatsApp Concierge</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Case Study 02 -->
-                <article class="case-card">
-                    <div class="case-media">
-                        <img src="images/jewellery-showroom.jpg" alt="Fine Jewellery Showroom" loading="lazy">
-                        <div class="case-tag-pill">Panadura</div>
-                    </div>
-                    <div class="case-body">
-                        <div class="case-category">Luxury Retail &bull; Gems</div>
-                        <h3 class="case-title">Ceylon Sapphire &amp; Custom Jewelry Showcase</h3>
-                        <p class="case-description">Created an editorial luxury catalog highlighting custom jewelry craftsmanship, enabling diaspora and international buyers to request WhatsApp design quotes.</p>
-                        
-                        <div class="case-metrics">
-                            <div class="metric-pill">
-                                <span class="metric-num">2.5x</span>
-                                <span class="metric-desc">Inquiry Conversion</span>
-                            </div>
-                            <div class="metric-pill">
-                                <span class="metric-num">Top 3</span>
-                                <span class="metric-desc">Local Google Rank</span>
-                            </div>
-                            <div class="metric-pill">
-                                <span class="metric-num">Custom</span>
-                                <span class="metric-desc">Appraisal Form</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Case Study 03 -->
-                <article class="case-card">
-                    <div class="case-media">
-                        <img src="images/coastal-dining.jpg" alt="Coastal Dining and Events" loading="lazy">
-                        <div class="case-tag-pill">Wadduwa</div>
-                    </div>
-                    <div class="case-body">
-                        <div class="case-category">Dining &amp; Banquets</div>
-                        <h3 class="case-title">Beachfront Banquet &amp; Wedding Venue</h3>
-                        <p class="case-description">Built a dedicated wedding banquet availability portal allowing prospective couples to check wedding packages, download PDF menus, and book dates in 30 seconds.</p>
-                        
-                        <div class="case-metrics">
-                            <div class="metric-pill">
-                                <span class="metric-num">100%</span>
-                                <span class="metric-desc">Mobile Responsive</span>
-                            </div>
-                            <div class="metric-pill">
-                                <span class="metric-num">&lt;350KB</span>
-                                <span class="metric-desc">Payload Weight</span>
-                            </div>
-                            <div class="metric-pill">
-                                <span class="metric-num">Instant</span>
-                                <span class="metric-desc">Hall Date Check</span>
-                            </div>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 04: Contact / CTA -->
-    <section class="content-section bg-gradient-brand" id="contact">
-        <div class="site-container">
-            <div class="cta-banner">
-                <div class="cta-inner">
-                    <div class="section-label center-label">
-                        <span class="num-accent">04</span>
-                        <span class="label-text">Get In Touch</span>
-                    </div>
-
-                    <h2 class="cta-heading">Ready to transform your business's mobile conversion?</h2>
-                    <p class="cta-sub">Drop me a quick note on WhatsApp. I'll review your current website and send you a complimentary 3-point digital growth audit with no obligations.</p>
-
-                    <div class="cta-channels">
-                        <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20a%20free%20website%20audit%20for%20my%20business." class="btn btn-primary btn-large" target="_blank" rel="noopener">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
-                            <span>WhatsApp: 076 893 3421</span>
+                    <div class="hero-action-pills">
+                        <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20to%20discuss%20a%20website%20project%20for%20my%20business." class="pill-btn pill-btn-primary" target="_blank" rel="noopener">
+                            <span class="btn-label">Start a project</span>
+                            <span class="arrow-badge">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
+                            </span>
                         </a>
 
-                        <a href="mailto:nilupul.maheema@gmail.com" class="btn btn-secondary btn-large">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                            <span>nilupul.maheema@gmail.com</span>
-                        </a>
-
-                        <a href="tel:+94768933421" class="btn btn-secondary btn-large">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                            <span>Direct Call</span>
+                        <a href="#work" class="pill-btn pill-btn-secondary">
+                            <span class="btn-label">See the work</span>
+                            <span class="arrow-badge-outline">
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
+                            </span>
                         </a>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="site-container">
-            <div class="footer-grid">
-                <div class="footer-identity">
-                    <span class="footer-logo">nilupul<span class="logo-dot">.</span>dev</span>
-                    <p class="footer-tagline">Web Designer &amp; Digital Growth Consultant based in Kalutara, Sri Lanka.</p>
+            <!-- Bottom Right Easter Egg Status Counter -->
+            <div class="easter-egg-pill" id="easterEggPill" title="Find hidden interactive studio nodes!">
+                <span class="egg-dot">⊙</span>
+                <span class="egg-text"><span id="eggCount">1</span>/15 found</span>
+            </div>
+        </section>
+
+        <!-- SECTION 01: CAPABILITIES -->
+        <section class="studio-section" id="services">
+            <div class="section-container">
+                <div class="section-meta-header">
+                    <div class="section-tag">[01 // CAPABILITIES]</div>
+                    <div class="section-rule-coord">Y: 1024px</div>
                 </div>
 
-                <div class="footer-nav-links">
-                    <a href="#services">Services</a>
-                    <a href="#methodology">Approach</a>
-                    <a href="#work">Work</a>
-                    <a href="#contact">Contact</a>
-                    <a href="https://wa.me/94768933421" target="_blank" rel="noopener">WhatsApp Chat</a>
+                <div class="section-title-row">
+                    <h2 class="section-title">One person. Both disciplines. Zero agency bureaucracy.</h2>
+                    <p class="section-subtext">Eliminating the costly disconnect between designers who don't understand code and developers who don't care about aesthetics or conversion.</p>
+                </div>
+
+                <div class="capabilities-grid">
+                    <div class="cap-card" data-egg="Direct WhatsApp Flow">
+                        <div class="card-num">01.1</div>
+                        <h3 class="card-title">High-Converting Web Architecture</h3>
+                        <p class="card-body">Bespoke websites designed specifically for luxury hospitality, retail jewelers, and established local enterprises. Mobile-first ergonomics crafted to turn casual visitors into paying customers.</p>
+                        <div class="card-specs">
+                            <span class="spec-pill">Vanilla HTML5/CSS3</span>
+                            <span class="spec-pill">Zero Bloat</span>
+                            <span class="spec-pill">Lighthouse 99+</span>
+                        </div>
+                    </div>
+
+                    <div class="cap-card" data-egg="1-Tap Booking System">
+                        <div class="card-num">01.2</div>
+                        <h3 class="card-title">Direct WhatsApp Booking Pipelines</h3>
+                        <p class="card-body">Replace clunky multi-step forms and high OTA commissions with streamlined, 1-tap WhatsApp booking flows and automated quotation routing.</p>
+                        <div class="card-specs">
+                            <span class="spec-pill">+78% Inquiry Lift</span>
+                            <span class="spec-pill">Instant WhatsApp Ping</span>
+                            <span class="spec-pill">Pre-filled Data</span>
+                        </div>
+                    </div>
+
+                    <div class="cap-card" data-egg="Schema Rich Snippets">
+                        <div class="card-num">01.3</div>
+                        <h3 class="card-title">Local SEO &amp; Schema Engineering</h3>
+                        <p class="card-body">LodgingBusiness, LocalBusiness, and Store JSON-LD schemas ensuring your business ranks at the absolute top of Google Maps and local search queries.</p>
+                        <div class="card-specs">
+                            <span class="spec-pill">Google Maps Rank #1</span>
+                            <span class="spec-pill">Rich Snippets</span>
+                            <span class="spec-pill">Structured Data</span>
+                        </div>
+                    </div>
+
+                    <div class="cap-card" data-egg="Sub-Second Speed Build">
+                        <div class="card-num">01.4</div>
+                        <h3 class="card-title">Sub-Second Speed &amp; Global CDN</h3>
+                        <p class="card-body">Hosted globally on Vercel with automatic edge caching, next-gen WebP image delivery, and flawless performance on cellular networks across Sri Lanka.</p>
+                        <div class="card-specs">
+                            <span class="spec-pill">1.2s First Paint</span>
+                            <span class="spec-pill">Edge CDN</span>
+                            <span class="spec-pill">99.99% Uptime</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="footer-bottom">
-                <p>&copy; 2026 Nilupul Siriwardena. All rights reserved. Designed to Straightforward Brand Guidelines.</p>
-                <div class="footer-legal">
-                    <span>Kalutara &bull; Wadduwa &bull; Panadura &bull; Colombo</span>
+        <!-- SECTION 02: SELECTED WORK -->
+        <section class="studio-section" id="work">
+            <div class="section-container">
+                <div class="section-meta-header">
+                    <div class="section-tag">[02 // SELECTED WORK]</div>
+                    <div class="section-rule-coord">Y: 1728px</div>
+                </div>
+
+                <div class="section-title-row">
+                    <h2 class="section-title">Tested in the real world. Measurable commercial return.</h2>
+                    <p class="section-subtext">Recent case studies re-engineered for clients across Western Province.</p>
+                </div>
+
+                <div class="projects-list">
+                    <!-- Project 01 -->
+                    <article class="project-entry" data-egg="Boutique Resort Architecture">
+                        <div class="project-visual">
+                            <div class="project-frame">
+                                <img src="images/resort-redesign.jpg" alt="Boutique Beach Resort Redesign" loading="lazy">
+                                <div class="visual-blueprint-overlay">
+                                    <span class="bp-tag">[HOSPITALITY // 100/100 SPEED]</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-data">
+                            <div class="project-meta-line">
+                                <span class="meta-client">Boutique Resort &bull; Kalutara</span>
+                                <span class="meta-year">2026</span>
+                            </div>
+                            <h3 class="project-name">Boutique Beachfront Resort &amp; Retreat Showcase</h3>
+                            <p class="project-desc">Replaced an outdated, slow legacy template with a minimalist, high-speed mobile website featuring direct 1-tap WhatsApp day-outing reservations and villa bookings.</p>
+                            
+                            <div class="project-metrics-grid">
+                                <div class="p-metric">
+                                    <span class="p-val">+78%</span>
+                                    <span class="p-key">Direct WhatsApp Inquiries</span>
+                                </div>
+                                <div class="p-metric">
+                                    <span class="p-val">1.2s</span>
+                                    <span class="p-key">Mobile First Contentful Paint</span>
+                                </div>
+                                <div class="p-metric">
+                                    <span class="p-val">0%</span>
+                                    <span class="p-key">OTA Intermediary Commission</span>
+                                </div>
+                            </div>
+
+                            <div class="project-actions">
+                                <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20tell%20me%20more%20about%20the%20Boutique%20Resort%20case%20study." class="pill-btn pill-btn-primary" target="_blank" rel="noopener">
+                                    <span class="btn-label">Inquire About This Build</span>
+                                    <span class="arrow-badge">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                                            <polyline points="7 7 17 7 17 17"></polyline>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 02 -->
+                    <article class="project-entry" data-egg="Luxury Jewelry Appraisal Engine">
+                        <div class="project-visual">
+                            <div class="project-frame">
+                                <img src="images/jewellery-showroom.jpg" alt="Fine Jewellery Showroom" loading="lazy">
+                                <div class="visual-blueprint-overlay">
+                                    <span class="bp-tag">[LUXURY RETAIL // CEYLON GEMS]</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-data">
+                            <div class="project-meta-line">
+                                <span class="meta-client">Fine Jewellery Showroom &bull; Panadura</span>
+                                <span class="meta-year">2026</span>
+                            </div>
+                            <h3 class="project-name">Ceylon Sapphire &amp; Custom Jewelry Showcase</h3>
+                            <p class="project-desc">Engineered an editorial luxury jewelry catalog allowing international buyers and local bridal clients to request custom gem designs directly over WhatsApp.</p>
+                            
+                            <div class="project-metrics-grid">
+                                <div class="p-metric">
+                                    <span class="p-val">2.5&times;</span>
+                                    <span class="p-key">Lead Inquiry Conversion</span>
+                                </div>
+                                <div class="p-metric">
+                                    <span class="p-val">Top 3</span>
+                                    <span class="p-key">Google Maps Local Search</span>
+                                </div>
+                                <div class="p-metric">
+                                    <span class="p-val">&lt;280KB</span>
+                                    <span class="p-key">Total Initial Payload</span>
+                                </div>
+                            </div>
+
+                            <div class="project-actions">
+                                <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20tell%20me%20more%20about%20the%20Jewelry%20Showcase%20case%20study." class="pill-btn pill-btn-primary" target="_blank" rel="noopener">
+                                    <span class="btn-label">Inquire About This Build</span>
+                                    <span class="arrow-badge">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                                            <polyline points="7 7 17 7 17 17"></polyline>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 03 -->
+                    <article class="project-entry" data-egg="Banquet Date Checker">
+                        <div class="project-visual">
+                            <div class="project-frame">
+                                <img src="images/coastal-dining.jpg" alt="Coastal Dining and Events" loading="lazy">
+                                <div class="visual-blueprint-overlay">
+                                    <span class="bp-tag">[EVENT &amp; BANQUET // DATE CHECKER]</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-data">
+                            <div class="project-meta-line">
+                                <span class="meta-client">Beachfront Venue &bull; Wadduwa</span>
+                                <span class="meta-year">2026</span>
+                            </div>
+                            <h3 class="project-name">Beachfront Banquet &amp; Wedding Venue Portal</h3>
+                            <p class="project-desc">Interactive date inquiry system enabling wedding planners and couples to check hall dates, download tailored menu brochures, and lock booking consults in 30 seconds.</p>
+                            
+                            <div class="project-metrics-grid">
+                                <div class="p-metric">
+                                    <span class="p-val">100%</span>
+                                    <span class="p-key">Mobile Optimized</span>
+                                </div>
+                                <div class="p-metric">
+                                    <span class="p-val">30s</span>
+                                    <span class="p-key">Average Inquiry Completion</span>
+                                </div>
+                                <div class="p-metric">
+                                    <span class="p-val">Zero</span>
+                                    <span class="p-key">Third-party Tracker Bloat</span>
+                                </div>
+                            </div>
+
+                            <div class="project-actions">
+                                <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20tell%20me%20more%20about%20the%20Banquet%20Venue%20case%20study." class="pill-btn pill-btn-primary" target="_blank" rel="noopener">
+                                    <span class="btn-label">Inquire About This Build</span>
+                                    <span class="arrow-badge">
+                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                                            <polyline points="7 7 17 7 17 17"></polyline>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </footer>
+        </section>
 
-    <!-- Minimalist Floating WhatsApp Action Pill -->
-    <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27m%20interested%20in%20a%20website%20for%20my%20business." class="whatsapp-float-pill" target="_blank" rel="noopener" aria-label="Direct WhatsApp Chat">
-        <span class="whatsapp-pill-dot"></span>
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/></svg>
-        <span class="whatsapp-pill-label">Inquire on WhatsApp</span>
+        <!-- SECTION 03: METHODOLOGY -->
+        <section class="studio-section" id="approach">
+            <div class="section-container">
+                <div class="section-meta-header">
+                    <div class="section-tag">[03 // METHODOLOGY]</div>
+                    <div class="section-rule-coord">Y: 2560px</div>
+                </div>
+
+                <div class="section-title-row">
+                    <h2 class="section-title">Transparent execution. 7 to 10 day turnaround.</h2>
+                    <p class="section-subtext">No multi-week committee delays. You work directly with the practitioner designing and programming every line.</p>
+                </div>
+
+                <div class="methodology-timeline">
+                    <div class="step-card" data-egg="Discovery Audit Step">
+                        <div class="step-idx">STEP 01</div>
+                        <h4 class="step-name">Discovery &amp; Speed Audit</h4>
+                        <p class="step-summary">We dissect your existing site across 3G/4G cellular speeds, identifying mobile drop-off points, missing WhatsApp links, and hidden speed blockers.</p>
+                    </div>
+
+                    <div class="step-card" data-egg="High-Fidelity Prototype">
+                        <div class="step-idx">STEP 02</div>
+                        <h4 class="step-name">Precision Visual Architecture</h4>
+                        <p class="step-summary">You receive an exact, interactive preview of your new website before development starts. Zero surprises, razor-sharp typography, and bespoke layouts.</p>
+                    </div>
+
+                    <div class="step-card" data-egg="Handcrafted Code">
+                        <div class="step-idx">STEP 03</div>
+                        <h4 class="step-name">Production Engineering</h4>
+                        <p class="step-summary">Handcrafted clean markup with zero framework bloat. Integrated WhatsApp booking hooks, schema markup, and responsive touch controls.</p>
+                    </div>
+
+                    <div class="step-card" data-egg="Global Vercel Edge Launch">
+                        <div class="step-idx">STEP 04</div>
+                        <h4 class="step-name">Edge Deploy &amp; Growth</h4>
+                        <p class="step-summary">Live deployment on Vercel's global CDN network, Google Maps registration verification, and full training on managing customer inquiries.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 04: CONTACT & FOOTER -->
+        <section class="studio-section footer-section" id="contact">
+            <div class="section-container">
+                <div class="section-meta-header">
+                    <div class="section-tag">[04 // CONTACT]</div>
+                    <div class="section-rule-coord">Y: 3200px</div>
+                </div>
+
+                <div class="contact-cta-wrapper">
+                    <h2 class="contact-big-headline">Let's build something people will talk about<span class="dot-accent">.</span></h2>
+                    <p class="contact-subhead">Direct availability for projects across Western Province &amp; international clients. Reach out directly on WhatsApp for an immediate response.</p>
+
+                    <div class="contact-buttons-row">
+                        <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20to%20discuss%20a%20website%20project." class="pill-btn pill-btn-primary pill-btn-large" target="_blank" rel="noopener">
+                            <span class="btn-label">Chat on WhatsApp (076 893 3421)</span>
+                            <span class="arrow-badge">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
+                            </span>
+                        </a>
+
+                        <a href="mailto:nilupul.maheema@gmail.com" class="pill-btn pill-btn-secondary pill-btn-large">
+                            <span class="btn-label">nilupul.maheema@gmail.com</span>
+                            <span class="arrow-badge-outline">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Studio Technical Footer -->
+                <footer class="studio-footer">
+                    <div class="footer-top-row">
+                        <div class="f-col">
+                            <span class="f-title">nilupul.</span>
+                            <p class="f-desc">Web design and automation studio. One person, both sides: design and code.</p>
+                        </div>
+                        <div class="f-col">
+                            <span class="f-title">Coordinates</span>
+                            <p class="f-desc">Kalutara District &bull; Western Province<br>Sri Lanka &bull; 6.5854&deg; N, 79.9607&deg; E</p>
+                        </div>
+                        <div class="f-col">
+                            <span class="f-title">Status</span>
+                            <p class="f-desc"><span class="status-live-dot"></span> Available for Q4/Q1 commissions</p>
+                        </div>
+                    </div>
+
+                    <div class="footer-bottom-row">
+                        <div class="f-copy">&copy; 2026 Nilupul Siriwardena. All rights reserved.</div>
+                        <div class="f-benchmark">METIC-PRECISION UI &bull; VERIFIED 100/100</div>
+                    </div>
+                </footer>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Floating Persistent WhatsApp Pill -->
+    <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20to%20discuss%20a%20website%20project." class="floating-whatsapp-action" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <span class="wh-dot"></span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.79 23.492l4.572-1.467A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-2.169 0-4.176-.693-5.821-1.87l-.418-.248-2.71.87.885-2.631-.273-.434A9.776 9.776 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818S21.818 6.58 21.818 12s-4.398 9.818-9.818 9.818z"/>
+        </svg>
+        <span>WhatsApp</span>
     </a>
 
+    <!-- Interactive Scripts -->
     <script>
-        // Header background blur upon scrolling
-        const header = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 30) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+        // 1. DYNAMIC TECHNICAL RULER GENERATION
+        (function initRuler() {
+            const rulerTrack = document.getElementById('rulerTrack');
+            if (!rulerTrack) return;
+            
+            // Generate ruler marks from 0 to 4000px in 16px increments, major labels every 64px
+            const maxPixelHeight = 4200;
+            const step = 16;
+            let html = '';
+            
+            for (let y = 64; y <= maxPixelHeight; y += step) {
+                const isMajor = (y % 64 === 0);
+                if (isMajor) {
+                    html += `
+                        <div class="ruler-major-mark" style="top: ${y}px;">
+                            <span class="ruler-num">${y}</span>
+                            <span class="ruler-tick tick-major"></span>
+                        </div>
+                    `;
+                } else {
+                    html += `
+                        <div class="ruler-minor-mark" style="top: ${y}px;">
+                            <span class="ruler-tick tick-minor"></span>
+                        </div>
+                    `;
+                }
             }
-        });
+            rulerTrack.innerHTML = html;
+        })();
 
-        // Mobile drawer toggle
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const mobileDrawer = document.getElementById('mobileDrawer');
-        if (hamburgerBtn && mobileDrawer) {
-            hamburgerBtn.addEventListener('click', () => {
-                hamburgerBtn.classList.toggle('active');
-                mobileDrawer.classList.toggle('open');
-            });
+        // 2. DRAGGABLE INTERACTIVE MAGNIFYING GLASS
+        (function initMagnifier() {
+            const glass = document.getElementById('magnifyingGlass');
+            const hudCoords = document.getElementById('hudCoords');
+            const lensPrompt = document.getElementById('lensPrompt');
+            const eggCountEl = document.getElementById('eggCount');
+            const eggPill = document.getElementById('easterEggPill');
+            
+            if (!glass) return;
 
-            document.querySelectorAll('.drawer-link, .drawer-cta').forEach(link => {
-                link.addEventListener('click', () => {
-                    hamburgerBtn.classList.remove('active');
-                    mobileDrawer.classList.remove('open');
+            let isDragging = false;
+            let startX, startY;
+            let currentX = 0, currentY = 0;
+            let foundNodes = new Set(['Initial Center Target']);
+
+            // Get initial position
+            const rect = glass.getBoundingClientRect();
+            currentX = rect.left;
+            currentY = rect.top;
+
+            function onPointerDown(e) {
+                isDragging = true;
+                glass.classList.add('is-picked-up');
+                if (lensPrompt) {
+                    lensPrompt.style.opacity = '0.35';
+                }
+                const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+                const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+                startX = clientX - currentX;
+                startY = clientY - currentY;
+                e.preventDefault();
+            }
+
+            function onPointerMove(e) {
+                if (!isDragging) return;
+                const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+                const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+                
+                currentX = clientX - startX;
+                currentY = clientY - startY;
+
+                glass.style.position = 'fixed';
+                glass.style.left = `${currentX}px`;
+                glass.style.top = `${currentY}px`;
+                glass.style.margin = '0';
+
+                // Update HUD readout
+                if (hudCoords) {
+                    const pageY = Math.round(currentY + window.scrollY);
+                    const pageX = Math.round(currentX);
+                    hudCoords.textContent = `X: ${pageX} Y: ${pageY}`;
+                }
+
+                // Check for overlapping Easter Egg nodes
+                checkEasterEggs(clientX, clientY);
+            }
+
+            function onPointerUp() {
+                if (isDragging) {
+                    isDragging = false;
+                    glass.classList.remove('is-picked-up');
+                    if (lensPrompt) {
+                        lensPrompt.style.opacity = '1';
+                    }
+                }
+            }
+
+            function checkEasterEggs(x, y) {
+                const eggs = document.querySelectorAll('[data-egg]');
+                eggs.forEach(egg => {
+                    const eggRect = egg.getBoundingClientRect();
+                    const centerX = eggRect.left + eggRect.width / 2;
+                    const centerY = eggRect.top + eggRect.height / 2;
+                    const dist = Math.hypot(x - centerX, y - centerY);
+                    
+                    if (dist < 90) {
+                        const eggId = egg.getAttribute('data-egg');
+                        if (!foundNodes.has(eggId)) {
+                            foundNodes.add(eggId);
+                            egg.classList.add('egg-illuminated');
+                            const total = Math.min(15, foundNodes.size);
+                            if (eggCountEl) eggCountEl.textContent = total;
+                            if (eggPill) {
+                                eggPill.classList.add('egg-ping');
+                                setTimeout(() => eggPill.classList.remove('egg-ping'), 800);
+                            }
+                        }
+                    }
                 });
+            }
+
+            // Mouse and touch listeners
+            glass.addEventListener('mousedown', onPointerDown);
+            window.addEventListener('mousemove', onPointerMove);
+            window.addEventListener('mouseup', onPointerUp);
+
+            glass.addEventListener('touchstart', onPointerDown, { passive: false });
+            window.addEventListener('touchmove', onPointerMove, { passive: false });
+            window.addEventListener('touchend', onPointerUp);
+
+            // Subtle gentle floating physics when not dragging
+            let floatAngle = 0;
+            function ambientFloat() {
+                if (!isDragging && !glass.classList.contains('is-positioned-manually')) {
+                    floatAngle += 0.02;
+                    const offsetY = Math.sin(floatAngle) * 6;
+                    const offsetX = Math.cos(floatAngle * 0.7) * 4;
+                    glass.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`;
+                }
+                requestAnimationFrame(ambientFloat);
+            }
+            ambientFloat();
+        })();
+
+        // 3. X-RAY BLUEPRINT MODE TOGGLE
+        (function initXRay() {
+            const xrayBtn = document.getElementById('xrayToggle');
+            if (!xrayBtn) return;
+
+            xrayBtn.addEventListener('click', () => {
+                document.body.classList.toggle('xray-mode');
+                const isActive = document.body.classList.contains('xray-mode');
+                xrayBtn.classList.toggle('active', isActive);
             });
-        }
+        })();
+
+        // 4. MENU DRAWER CONTROLS
+        (function initDrawer() {
+            const menuToggle = document.getElementById('menuToggle');
+            const drawer = document.getElementById('studioDrawer');
+            const drawerClose = document.getElementById('drawerClose');
+            const drawerBackdrop = document.getElementById('drawerBackdrop');
+            const drawerLinks = document.querySelectorAll('.drawer-item');
+
+            function openDrawer() {
+                drawer.classList.add('is-open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeDrawer() {
+                drawer.classList.remove('is-open');
+                document.body.style.overflow = '';
+            }
+
+            if (menuToggle) menuToggle.addEventListener('click', openDrawer);
+            if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
+            if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
+
+            drawerLinks.forEach(link => {
+                link.addEventListener('click', closeDrawer);
+            });
+        })();
+
+        // 5. SMOOTH SCROLL FOR BUTTONS
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
     </script>
 </body>
 </html>
