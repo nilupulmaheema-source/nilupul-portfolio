@@ -24,7 +24,7 @@
     <!-- Left Technical Margin Ruler (Dynamic & Continuous) -->
     <aside class="canvas-ruler" id="canvasRuler" aria-hidden="true">
         <div class="ruler-track" id="rulerTrack">
-            <!-- Dynamically populated or static ruler marks -->
+            <!-- Dynamically populated ruler marks -->
         </div>
     </aside>
 
@@ -56,7 +56,6 @@
                 </a>
 
                 <button class="menu-pill-btn" id="menuToggle" aria-label="Toggle navigation menu">
-                    <span class="menu-dot"></span>
                     <span class="menu-lines">
                         <span></span>
                         <span></span>
@@ -98,69 +97,50 @@
         <!-- HERO SECTION (Authentic Metic Studio Structure) -->
         <section class="hero-viewport" id="hero">
             
-            <!-- Target concentric element (Easter egg #1) -->
-            <div class="canvas-target-node" style="top: 48%; left: 51%;" data-egg="Target Marker 01">
+            <!-- Background Target Marker (Easter Egg #1) -->
+            <div class="canvas-target-node" style="top: 48%; left: 51%;" data-x="Target Bullseye" data-secret="Target Alpha">
                 <div class="target-ring"></div>
                 <div class="target-center-dot"></div>
             </div>
 
-            <!-- Draggable Interactive Magnifying Glass -->
-            <div class="interactive-magnifier" id="magnifyingGlass" role="region" aria-label="Interactive Magnifier Lens">
-                <div class="magnifier-lens" id="magnifierLens">
-                    <!-- Glass glare & optics -->
-                    <div class="lens-glass-reflection"></div>
-                    <div class="lens-bezel-marks"></div>
-                    
-                    <!-- Inner red instruction circle -->
-                    <div class="lens-content-bubble" id="lensPrompt">
-                        <span class="lens-badge-dot"></span>
-                        <div class="lens-text">
-                            <span>Pick</span>
-                            <span>me up.</span>
-                        </div>
-                        <svg class="lens-arrow-icon" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="7" y1="7" x2="17" y2="17"></line>
-                            <polyline points="17 7 17 17 7 17"></polyline>
-                        </svg>
-                    </div>
+            <!-- Invisible Secret Ink in Hero (Revealed by Loupe) -->
+            <div class="secret-ink-container" style="top: 36%; left: 38%;" data-secret="Secret Blueprint 01">
+                <span class="secret-ink-text">[SECRET INK: 100/100 LIGHTHOUSE SPEED &bull; ZERO WORDPRESS BLOAT]</span>
+            </div>
 
-                    <!-- HUD readout inside lens -->
-                    <div class="lens-hud-readout" id="lensHud">
-                        <span class="hud-coords" id="hudCoords">X: 620 Y: 280</span>
-                        <span class="hud-zoom">2.5&times; OPTICS</span>
-                    </div>
-                </div>
-
-                <!-- Realistic metallic grooved handle -->
-                <div class="magnifier-handle">
-                    <div class="handle-collar"></div>
-                    <div class="handle-grip">
-                        <div class="grip-stripe"></div>
-                        <div class="grip-stripe"></div>
-                        <div class="grip-stripe"></div>
-                        <div class="grip-stripe"></div>
-                        <div class="grip-stripe"></div>
-                        <div class="grip-stripe"></div>
-                    </div>
-                    <div class="handle-cap"></div>
+            <!-- STATIC HERO LOUPE HOME (Photorealistic Metic Asset) -->
+            <div class="loupe-home-anchor" id="loupeHome" data-loupe-home="hero" role="button" tabindex="0" aria-label="Pick up magnifying glass to inspect page">
+                <img src="images/loupe-poster.webp" alt="Metic Studio Precision Loupe" class="loupe-poster-img" id="loupePosterImg" width="760" height="881" fetchpriority="high">
+                
+                <!-- Inner Red "Pick me up." Prompt (Centered inside lens) -->
+                <div class="loupe-center-prompt" id="loupePrompt">
+                    <span class="prompt-red-dot"></span>
+                    <span class="prompt-text">
+                        <span>Pick</span>
+                        <span>me up.</span>
+                    </span>
+                    <svg class="prompt-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="7" x2="17" y2="17"></line>
+                        <polyline points="17 7 17 17 7 17"></polyline>
+                    </svg>
                 </div>
             </div>
 
             <!-- Hero Bottom Content Grid -->
             <div class="hero-bottom-bar">
                 <!-- Massive Left Headline -->
-                <div class="hero-headline-block">
+                <div class="hero-headline-block" data-x="Heading 1" data-x-font="true" data-x-color="true">
                     <h1 class="hero-headline">Take a closer look<span class="dot-accent">.</span></h1>
                 </div>
 
                 <!-- Right Studio Bio & Action Buttons -->
-                <div class="hero-bio-block">
+                <div class="hero-bio-block" data-x="Studio Bio">
                     <p class="studio-bio-text">
                         Web design and automation studio from Western Province, Sri Lanka. One person, both sides: design and code.
                     </p>
 
-                    <div class="hero-action-pills">
-                        <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20to%20discuss%20a%20website%20project%20for%20my%20business." class="pill-btn pill-btn-primary" target="_blank" rel="noopener">
+                    <div class="hero-action-pills" data-x="Action Buttons">
+                        <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20to%20discuss%20a%20website%20project%20for%20my%20business." class="pill-btn pill-btn-primary" target="_blank" rel="noopener" data-x="WhatsApp Action">
                             <span class="btn-label">Start a project</span>
                             <span class="arrow-badge">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
@@ -170,7 +150,7 @@
                             </span>
                         </a>
 
-                        <a href="#work" class="pill-btn pill-btn-secondary">
+                        <a href="#work" class="pill-btn pill-btn-secondary" data-x="Work Link">
                             <span class="btn-label">See the work</span>
                             <span class="arrow-badge-outline">
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -185,13 +165,13 @@
 
             <!-- Bottom Right Easter Egg Status Counter -->
             <div class="easter-egg-pill" id="easterEggPill" title="Find hidden interactive studio nodes!">
-                <span class="egg-dot">⊙</span>
-                <span class="egg-text"><span id="eggCount">1</span>/15 found</span>
+                <span class="egg-dot">&odot;</span>
+                <span class="egg-text"><span id="eggCount">4</span>/15 found</span>
             </div>
         </section>
 
         <!-- SECTION 01: CAPABILITIES -->
-        <section class="studio-section" id="services">
+        <section class="studio-section" id="services" data-x="Section: Capabilities">
             <div class="section-container">
                 <div class="section-meta-header">
                     <div class="section-tag">[01 // CAPABILITIES]</div>
@@ -199,12 +179,17 @@
                 </div>
 
                 <div class="section-title-row">
-                    <h2 class="section-title">One person. Both disciplines. Zero agency bureaucracy.</h2>
-                    <p class="section-subtext">Eliminating the costly disconnect between designers who don't understand code and developers who don't care about aesthetics or conversion.</p>
+                    <h2 class="section-title" data-x="Heading 2">One person. Both disciplines. Zero agency bureaucracy.</h2>
+                    <p class="section-subtext" data-x="Subtext">Eliminating the costly disconnect between designers who don't understand code and developers who don't care about aesthetics or conversion.</p>
+                </div>
+
+                <!-- Secret ink hint -->
+                <div class="secret-ink-container" style="top: 15%; right: 5%;" data-secret="Bespoke Code Standard">
+                    <span class="secret-ink-text">[SECRET INK: HANDCRAFTED VANILLA CSS &bull; SUB-SECOND LATENCY]</span>
                 </div>
 
                 <div class="capabilities-grid">
-                    <div class="cap-card" data-egg="Direct WhatsApp Flow">
+                    <div class="cap-card" data-x="Card: Architecture" data-secret="Direct WhatsApp Architecture">
                         <div class="card-num">01.1</div>
                         <h3 class="card-title">High-Converting Web Architecture</h3>
                         <p class="card-body">Bespoke websites designed specifically for luxury hospitality, retail jewelers, and established local enterprises. Mobile-first ergonomics crafted to turn casual visitors into paying customers.</p>
@@ -215,7 +200,7 @@
                         </div>
                     </div>
 
-                    <div class="cap-card" data-egg="1-Tap Booking System">
+                    <div class="cap-card" data-x="Card: WhatsApp Pipeline" data-secret="1-Tap Booking System">
                         <div class="card-num">01.2</div>
                         <h3 class="card-title">Direct WhatsApp Booking Pipelines</h3>
                         <p class="card-body">Replace clunky multi-step forms and high OTA commissions with streamlined, 1-tap WhatsApp booking flows and automated quotation routing.</p>
@@ -226,7 +211,7 @@
                         </div>
                     </div>
 
-                    <div class="cap-card" data-egg="Schema Rich Snippets">
+                    <div class="cap-card" data-x="Card: Local SEO" data-secret="Schema Markup">
                         <div class="card-num">01.3</div>
                         <h3 class="card-title">Local SEO &amp; Schema Engineering</h3>
                         <p class="card-body">LodgingBusiness, LocalBusiness, and Store JSON-LD schemas ensuring your business ranks at the absolute top of Google Maps and local search queries.</p>
@@ -237,7 +222,7 @@
                         </div>
                     </div>
 
-                    <div class="cap-card" data-egg="Sub-Second Speed Build">
+                    <div class="cap-card" data-x="Card: Edge CDN" data-secret="Global Vercel Edge">
                         <div class="card-num">01.4</div>
                         <h3 class="card-title">Sub-Second Speed &amp; Global CDN</h3>
                         <p class="card-body">Hosted globally on Vercel with automatic edge caching, next-gen WebP image delivery, and flawless performance on cellular networks across Sri Lanka.</p>
@@ -252,7 +237,7 @@
         </section>
 
         <!-- SECTION 02: SELECTED WORK -->
-        <section class="studio-section" id="work">
+        <section class="studio-section" id="work" data-x="Section: Selected Work">
             <div class="section-container">
                 <div class="section-meta-header">
                     <div class="section-tag">[02 // SELECTED WORK]</div>
@@ -260,13 +245,13 @@
                 </div>
 
                 <div class="section-title-row">
-                    <h2 class="section-title">Tested in the real world. Measurable commercial return.</h2>
+                    <h2 class="section-title" data-x="Heading 2">Tested in the real world. Measurable commercial return.</h2>
                     <p class="section-subtext">Recent case studies re-engineered for clients across Western Province.</p>
                 </div>
 
                 <div class="projects-list">
                     <!-- Project 01 -->
-                    <article class="project-entry" data-egg="Boutique Resort Architecture">
+                    <article class="project-entry" data-x="Case: Boutique Resort" data-secret="Resort Architecture Proof">
                         <div class="project-visual">
                             <div class="project-frame">
                                 <img src="images/resort-redesign.jpg" alt="Boutique Beach Resort Redesign" loading="lazy">
@@ -313,7 +298,7 @@
                     </article>
 
                     <!-- Project 02 -->
-                    <article class="project-entry" data-egg="Luxury Jewelry Appraisal Engine">
+                    <article class="project-entry" data-x="Case: Fine Jewellery" data-secret="Luxury Retail Proof">
                         <div class="project-visual">
                             <div class="project-frame">
                                 <img src="images/jewellery-showroom.jpg" alt="Fine Jewellery Showroom" loading="lazy">
@@ -360,7 +345,7 @@
                     </article>
 
                     <!-- Project 03 -->
-                    <article class="project-entry" data-egg="Banquet Date Checker">
+                    <article class="project-entry" data-x="Case: Banquet Venue" data-secret="Event Venue Proof">
                         <div class="project-visual">
                             <div class="project-frame">
                                 <img src="images/coastal-dining.jpg" alt="Coastal Dining and Events" loading="lazy">
@@ -410,7 +395,7 @@
         </section>
 
         <!-- SECTION 03: METHODOLOGY -->
-        <section class="studio-section" id="approach">
+        <section class="studio-section" id="approach" data-x="Section: Methodology">
             <div class="section-container">
                 <div class="section-meta-header">
                     <div class="section-tag">[03 // METHODOLOGY]</div>
@@ -418,30 +403,30 @@
                 </div>
 
                 <div class="section-title-row">
-                    <h2 class="section-title">Transparent execution. 7 to 10 day turnaround.</h2>
+                    <h2 class="section-title" data-x="Heading 2">Transparent execution. 7 to 10 day turnaround.</h2>
                     <p class="section-subtext">No multi-week committee delays. You work directly with the practitioner designing and programming every line.</p>
                 </div>
 
                 <div class="methodology-timeline">
-                    <div class="step-card" data-egg="Discovery Audit Step">
+                    <div class="step-card" data-x="Step 1: Audit">
                         <div class="step-idx">STEP 01</div>
                         <h4 class="step-name">Discovery &amp; Speed Audit</h4>
                         <p class="step-summary">We dissect your existing site across 3G/4G cellular speeds, identifying mobile drop-off points, missing WhatsApp links, and hidden speed blockers.</p>
                     </div>
 
-                    <div class="step-card" data-egg="High-Fidelity Prototype">
+                    <div class="step-card" data-x="Step 2: Prototype">
                         <div class="step-idx">STEP 02</div>
                         <h4 class="step-name">Precision Visual Architecture</h4>
                         <p class="step-summary">You receive an exact, interactive preview of your new website before development starts. Zero surprises, razor-sharp typography, and bespoke layouts.</p>
                     </div>
 
-                    <div class="step-card" data-egg="Handcrafted Code">
+                    <div class="step-card" data-x="Step 3: Engineering">
                         <div class="step-idx">STEP 03</div>
                         <h4 class="step-name">Production Engineering</h4>
                         <p class="step-summary">Handcrafted clean markup with zero framework bloat. Integrated WhatsApp booking hooks, schema markup, and responsive touch controls.</p>
                     </div>
 
-                    <div class="step-card" data-egg="Global Vercel Edge Launch">
+                    <div class="step-card" data-x="Step 4: Launch">
                         <div class="step-idx">STEP 04</div>
                         <h4 class="step-name">Edge Deploy &amp; Growth</h4>
                         <p class="step-summary">Live deployment on Vercel's global CDN network, Google Maps registration verification, and full training on managing customer inquiries.</p>
@@ -451,7 +436,7 @@
         </section>
 
         <!-- SECTION 04: CONTACT & FOOTER -->
-        <section class="studio-section footer-section" id="contact">
+        <section class="studio-section footer-section" id="contact" data-x="Section: Contact">
             <div class="section-container">
                 <div class="section-meta-header">
                     <div class="section-tag">[04 // CONTACT]</div>
@@ -459,11 +444,11 @@
                 </div>
 
                 <div class="contact-cta-wrapper">
-                    <h2 class="contact-big-headline">Let's build something people will talk about<span class="dot-accent">.</span></h2>
+                    <h2 class="contact-big-headline" data-x="Contact Headline">Let's build something people will talk about<span class="dot-accent">.</span></h2>
                     <p class="contact-subhead">Direct availability for projects across Western Province &amp; international clients. Reach out directly on WhatsApp for an immediate response.</p>
 
                     <div class="contact-buttons-row">
-                        <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20to%20discuss%20a%20website%20project." class="pill-btn pill-btn-primary pill-btn-large" target="_blank" rel="noopener">
+                        <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20to%20discuss%20a%20website%20project." class="pill-btn pill-btn-primary pill-btn-large" target="_blank" rel="noopener" data-x="WhatsApp Direct">
                             <span class="btn-label">Chat on WhatsApp (076 893 3421)</span>
                             <span class="arrow-badge">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
@@ -473,7 +458,7 @@
                             </span>
                         </a>
 
-                        <a href="mailto:nilupul.maheema@gmail.com" class="pill-btn pill-btn-secondary pill-btn-large">
+                        <a href="mailto:nilupul.maheema@gmail.com" class="pill-btn pill-btn-secondary pill-btn-large" data-x="Email Direct">
                             <span class="btn-label">nilupul.maheema@gmail.com</span>
                             <span class="arrow-badge-outline">
                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -498,7 +483,7 @@
                         </div>
                         <div class="f-col">
                             <span class="f-title">Status</span>
-                            <p class="f-desc"><span class="status-live-dot"></span> Available for Q4/Q1 commissions</p>
+                            <p class="f-desc"><span class="status-live-dot"></span> Available for commissions</p>
                         </div>
                     </div>
 
@@ -512,6 +497,23 @@
 
     </main>
 
+    <!-- FLOATING INTERACTIVE LOUPE INSPECTOR (Active When Picked Up) -->
+    <div class="floating-interactive-loupe" id="liveLoupe" aria-hidden="true">
+        <!-- Live Inspector Canvas Inside Lens Circle -->
+        <div class="loupe-lens-viewport" id="lensViewport">
+            <canvas id="loupeCanvas" width="300" height="300"></canvas>
+            <div class="lens-glass-bezel"></div>
+            <div class="lens-glass-glare"></div>
+            <div class="lens-status-label" id="lensStatusLabel">INSPECTING</div>
+        </div>
+
+        <!-- High-Res Photorealistic Loupe Shell -->
+        <img src="images/loupe-poster.webp" alt="" class="live-loupe-shell" width="760" height="881" draggable="false">
+
+        <!-- Click to Put Down Floating Helper -->
+        <div class="loupe-drop-indicator" id="loupeDropIndicator">Click anywhere to put down &times;</div>
+    </div>
+
     <!-- Floating Persistent WhatsApp Pill -->
     <a href="https://wa.me/94768933421?text=Hi%20Nilupul%2C%20I%27d%20like%20to%20discuss%20a%20website%20project." class="floating-whatsapp-action" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
         <span class="wh-dot"></span>
@@ -522,21 +524,78 @@
         <span>WhatsApp</span>
     </a>
 
-    <!-- Interactive Scripts -->
+    <!-- Interactive Scripts: True Metic Studio Physics & Canvas Inspector -->
     <script>
-        // 1. DYNAMIC TECHNICAL RULER GENERATION
+        // --- 1. WEB AUDIO SYNTHESIZER (Authentic Metic Ticks & Clicks) ---
+        let audioCtx = null;
+        function getAudioContext() {
+            if (!audioCtx) {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioContextClass) audioCtx = new AudioContextClass();
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            return audioCtx;
+        }
+
+        function playSound(type) {
+            try {
+                const ctx = getAudioContext();
+                if (!ctx) return;
+                const now = ctx.currentTime;
+                
+                if (type === 'pickup') {
+                    // Smooth rising chime
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(220, now);
+                    osc.frequency.exponentialRampToValueAtTime(480, now + 0.12);
+                    gain.gain.setValueAtTime(0.18, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.14);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.15);
+                } else if (type === 'drop') {
+                    // Soft descending wood-like click
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(380, now);
+                    osc.frequency.exponentialRampToValueAtTime(140, now + 0.08);
+                    gain.gain.setValueAtTime(0.14, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.11);
+                } else if (type === 'tick') {
+                    // Crisp short inspect tick
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(800, now);
+                    gain.gain.setValueAtTime(0.04, now);
+                    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.03);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.04);
+                }
+            } catch (err) {}
+        }
+
+        // --- 2. DYNAMIC TECHNICAL RULER ---
         (function initRuler() {
             const rulerTrack = document.getElementById('rulerTrack');
             if (!rulerTrack) return;
-            
-            // Generate ruler marks from 0 to 4000px in 16px increments, major labels every 64px
             const maxPixelHeight = 4200;
             const step = 16;
             let html = '';
-            
             for (let y = 64; y <= maxPixelHeight; y += step) {
-                const isMajor = (y % 64 === 0);
-                if (isMajor) {
+                if (y % 64 === 0) {
                     html += `
                         <div class="ruler-major-mark" style="top: ${y}px;">
                             <span class="ruler-num">${y}</span>
@@ -554,133 +613,243 @@
             rulerTrack.innerHTML = html;
         })();
 
-        // 2. DRAGGABLE INTERACTIVE MAGNIFYING GLASS
-        (function initMagnifier() {
-            const glass = document.getElementById('magnifyingGlass');
-            const hudCoords = document.getElementById('hudCoords');
-            const lensPrompt = document.getElementById('lensPrompt');
+        // --- 3. METIC STUDIO PHOTOREALISTIC LOUPE & CANVAS INSPECTOR ---
+        (function initLoupe() {
+            const loupeHome = document.getElementById('loupeHome');
+            const liveLoupe = document.getElementById('liveLoupe');
+            const loupeCanvas = document.getElementById('loupeCanvas');
             const eggCountEl = document.getElementById('eggCount');
             const eggPill = document.getElementById('easterEggPill');
+            const lensStatus = document.getElementById('lensStatusLabel');
             
-            if (!glass) return;
+            if (!loupeHome || !liveLoupe || !loupeCanvas) return;
+            const ctx = loupeCanvas.getContext('2d');
 
-            let isDragging = false;
-            let startX, startY;
-            let currentX = 0, currentY = 0;
-            let foundNodes = new Set(['Initial Center Target']);
+            // Loupe Lens dimensions and geometry relative to loupe-poster.webp
+            // Graphic size: 760 x 881 px. Lens center is at ~40.8% X and 38.2% Y.
+            const LOUPE_WIDTH = 480; // on screen display width of the loupe
+            const LENS_REL_X = 0.4079; // ratio from left to lens center
+            const LENS_REL_Y = 0.3816; // ratio from top to lens center
+            const LENS_RADIUS = 95;   // radius of active glass area
 
-            // Get initial position
-            const rect = glass.getBoundingClientRect();
-            currentX = rect.left;
-            currentY = rect.top;
+            let isHeld = false;
+            let targetX = window.innerWidth * 0.65;
+            let targetY = window.innerHeight * 0.35;
+            let currentX = targetX;
+            let currentY = targetY;
+            let lastInspectedEl = null;
+            let foundSecrets = new Set(['Initial Target']);
 
-            function onPointerDown(e) {
-                isDragging = true;
-                glass.classList.add('is-picked-up');
-                if (lensPrompt) {
-                    lensPrompt.style.opacity = '0.35';
-                }
-                const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-                const clientY = e.clientY || (e.touches && e.touches[0].clientY);
-                startX = clientX - currentX;
-                startY = clientY - currentY;
-                e.preventDefault();
-            }
-
-            function onPointerMove(e) {
-                if (!isDragging) return;
-                const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-                const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+            // Pick up the loupe
+            function pickUpLoupe(e) {
+                e.stopPropagation();
+                if (isHeld) return;
                 
-                currentX = clientX - startX;
-                currentY = clientY - startY;
+                isHeld = true;
+                document.body.classList.add('loupe-held');
+                liveLoupe.classList.add('is-active');
+                playSound('pickup');
 
-                glass.style.position = 'fixed';
-                glass.style.left = `${currentX}px`;
-                glass.style.top = `${currentY}px`;
-                glass.style.margin = '0';
-
-                // Update HUD readout
-                if (hudCoords) {
-                    const pageY = Math.round(currentY + window.scrollY);
-                    const pageX = Math.round(currentX);
-                    hudCoords.textContent = `X: ${pageX} Y: ${pageY}`;
-                }
-
-                // Check for overlapping Easter Egg nodes
-                checkEasterEggs(clientX, clientY);
+                const clientX = e.clientX || (e.touches && e.touches[0].clientX) || window.innerWidth / 2;
+                const clientY = e.clientY || (e.touches && e.touches[0].clientY) || window.innerHeight / 2;
+                targetX = clientX;
+                targetY = clientY;
+                currentX = clientX;
+                currentY = clientY;
             }
 
-            function onPointerUp() {
-                if (isDragging) {
-                    isDragging = false;
-                    glass.classList.remove('is-picked-up');
-                    if (lensPrompt) {
-                        lensPrompt.style.opacity = '1';
+            // Put down the loupe
+            function dropLoupe(e) {
+                if (!isHeld) return;
+                if (e) e.stopPropagation();
+                isHeld = false;
+                document.body.classList.remove('loupe-held');
+                liveLoupe.classList.remove('is-active');
+                playSound('drop');
+            }
+
+            // Mouse / Touch movement tracking
+            function onPointerMove(e) {
+                const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+                const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+                if (clientX !== undefined && clientY !== undefined) {
+                    targetX = clientX;
+                    targetY = clientY;
+                }
+            }
+
+            loupeHome.addEventListener('mousedown', pickUpLoupe);
+            loupeHome.addEventListener('touchstart', pickUpLoupe, { passive: false });
+
+            window.addEventListener('mousemove', onPointerMove, { passive: true });
+            window.addEventListener('touchmove', onPointerMove, { passive: true });
+
+            // Clicking outside drops the loupe
+            window.addEventListener('click', (e) => {
+                if (isHeld && !e.target.closest('#loupeHome')) {
+                    dropLoupe(e);
+                }
+            });
+
+            // ESC key puts down loupe
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && isHeld) {
+                    dropLoupe();
+                }
+            });
+
+            // Smooth spring animation loop
+            function renderLoop() {
+                if (isHeld) {
+                    // Fluid easing / spring inertia
+                    currentX += (targetX - currentX) * 0.28;
+                    currentY += (targetY - currentY) * 0.28;
+
+                    // Position the floating loupe so lens center aligns with (currentX, currentY)
+                    const loupeLeft = currentX - (LOUPE_WIDTH * LENS_REL_X);
+                    const loupeTop = currentY - (LOUPE_WIDTH * (881/760) * LENS_REL_Y);
+                    liveLoupe.style.transform = `translate3d(${loupeLeft}px, ${loupeTop}px, 0)`;
+
+                    // Run the live Canvas Inspector
+                    inspectUnderLens(currentX, currentY);
+                }
+                requestAnimationFrame(renderLoop);
+            }
+            requestAnimationFrame(renderLoop);
+
+            // Live Inspector rendering inside the lens canvas
+            function inspectUnderLens(glassX, glassY) {
+                const size = 300;
+                ctx.clearRect(0, 0, size, size);
+
+                const center = size / 2;
+
+                // 1. Draw subtle optical grid inside lens
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(center, center, LENS_RADIUS, 0, Math.PI * 2);
+                ctx.clip();
+
+                // Soft background paper tint inside lens
+                ctx.fillStyle = '#FFFFFF';
+                ctx.fillRect(0, 0, size, size);
+
+                // Technical measurement grid lines
+                ctx.strokeStyle = 'rgba(255, 56, 35, 0.12)';
+                ctx.lineWidth = 1;
+                for (let i = -size; i < size * 2; i += 24) {
+                    ctx.beginPath();
+                    ctx.moveTo(i, 0);
+                    ctx.lineTo(i, size);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(0, i);
+                    ctx.lineTo(size, i);
+                    ctx.stroke();
+                }
+
+                // 2. Identify elements under glass
+                const elements = document.elementsFromPoint(glassX, glassY) || [];
+                let inspectedEl = null;
+
+                for (let el of elements) {
+                    if (el === liveLoupe || el === loupeHome || el === loupeCanvas || liveLoupe.contains(el)) continue;
+                    if (el.hasAttribute('data-x') || el.hasAttribute('data-secret') || ['H1','H2','H3','P','A','BUTTON','IMG','ARTICLE','SECTION'].includes(el.tagName)) {
+                        inspectedEl = el;
+                        break;
                     }
                 }
-            }
 
-            function checkEasterEggs(x, y) {
-                const eggs = document.querySelectorAll('[data-egg]');
-                eggs.forEach(egg => {
-                    const eggRect = egg.getBoundingClientRect();
-                    const centerX = eggRect.left + eggRect.width / 2;
-                    const centerY = eggRect.top + eggRect.height / 2;
-                    const dist = Math.hypot(x - centerX, y - centerY);
+                if (inspectedEl) {
+                    if (inspectedEl !== lastInspectedEl) {
+                        lastInspectedEl = inspectedEl;
+                        playSound('tick');
+                    }
+
+                    const rect = inspectedEl.getBoundingClientRect();
                     
-                    if (dist < 90) {
-                        const eggId = egg.getAttribute('data-egg');
-                        if (!foundNodes.has(eggId)) {
-                            foundNodes.add(eggId);
-                            egg.classList.add('egg-illuminated');
-                            const total = Math.min(15, foundNodes.size);
-                            if (eggCountEl) eggCountEl.textContent = total;
+                    // Coordinates relative to lens center
+                    const relLeft = rect.left - glassX + center;
+                    const relTop = rect.top - glassY + center;
+                    const relWidth = rect.width;
+                    const relHeight = rect.height;
+
+                    // Draw cyan / red blueprint wireframe
+                    ctx.strokeStyle = '#FF3823';
+                    ctx.lineWidth = 1.5;
+                    ctx.strokeRect(relLeft, relTop, relWidth, relHeight);
+
+                    // Corner anchor boxes
+                    ctx.fillStyle = '#111111';
+                    const handleSize = 5;
+                    ctx.fillRect(relLeft - handleSize/2, relTop - handleSize/2, handleSize, handleSize);
+                    ctx.fillRect(relLeft + relWidth - handleSize/2, relTop - handleSize/2, handleSize, handleSize);
+                    ctx.fillRect(relLeft - handleSize/2, relTop + relHeight - handleSize/2, handleSize, handleSize);
+                    ctx.fillRect(relLeft + relWidth - handleSize/2, relTop + relHeight - handleSize/2, handleSize, handleSize);
+
+                    // Metadata Pill Badge
+                    const label = inspectedEl.getAttribute('data-x') || inspectedEl.tagName.toLowerCase();
+                    const computed = window.getComputedStyle(inspectedEl);
+                    const fontSize = Math.round(parseFloat(computed.fontSize) || 16);
+                    const tagInfo = `${label}  ${Math.round(rect.width)} \u00D7 ${Math.round(rect.height)} px`;
+
+                    ctx.font = '700 10px "Space Mono", monospace';
+                    const textW = ctx.measureText(tagInfo).width + 12;
+                    const badgeX = Math.max(15, Math.min(size - textW - 15, relLeft));
+                    const badgeY = Math.max(25, Math.min(size - 30, relTop - 12));
+
+                    ctx.fillStyle = '#111111';
+                    ctx.fillRect(badgeX, badgeY, textW, 18);
+                    ctx.fillStyle = '#FFFFFF';
+                    ctx.fillText(tagInfo, badgeX + 6, badgeY + 12);
+
+                    // Check for Secret Ink Node
+                    if (inspectedEl.hasAttribute('data-secret')) {
+                        const secretName = inspectedEl.getAttribute('data-secret');
+                        if (!foundSecrets.has(secretName)) {
+                            foundSecrets.add(secretName);
+                            const count = Math.min(15, foundSecrets.size + 3);
+                            if (eggCountEl) eggCountEl.textContent = count;
                             if (eggPill) {
                                 eggPill.classList.add('egg-ping');
                                 setTimeout(() => eggPill.classList.remove('egg-ping'), 800);
                             }
                         }
                     }
-                });
-            }
 
-            // Mouse and touch listeners
-            glass.addEventListener('mousedown', onPointerDown);
-            window.addEventListener('mousemove', onPointerMove);
-            window.addEventListener('mouseup', onPointerUp);
-
-            glass.addEventListener('touchstart', onPointerDown, { passive: false });
-            window.addEventListener('touchmove', onPointerMove, { passive: false });
-            window.addEventListener('touchend', onPointerUp);
-
-            // Subtle gentle floating physics when not dragging
-            let floatAngle = 0;
-            function ambientFloat() {
-                if (!isDragging && !glass.classList.contains('is-positioned-manually')) {
-                    floatAngle += 0.02;
-                    const offsetY = Math.sin(floatAngle) * 6;
-                    const offsetX = Math.cos(floatAngle * 0.7) * 4;
-                    glass.style.transform = `translate3d(${offsetX}px, ${offsetY}px, 0)`;
+                    if (lensStatus) {
+                        lensStatus.textContent = `${label.toUpperCase()} [${fontSize}px]`;
+                    }
+                } else {
+                    if (lensStatus) {
+                        lensStatus.textContent = `X: ${Math.round(glassX)} Y: ${Math.round(glassY)}`;
+                    }
                 }
-                requestAnimationFrame(ambientFloat);
+
+                // Crosshair target center
+                ctx.strokeStyle = '#FF3823';
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.arc(center, center, 4, 0, Math.PI * 2);
+                ctx.stroke();
+
+                ctx.restore();
             }
-            ambientFloat();
         })();
 
-        // 3. X-RAY BLUEPRINT MODE TOGGLE
+        // --- 4. X-RAY BLUEPRINT MODE TOGGLE ---
         (function initXRay() {
             const xrayBtn = document.getElementById('xrayToggle');
             if (!xrayBtn) return;
-
             xrayBtn.addEventListener('click', () => {
                 document.body.classList.toggle('xray-mode');
                 const isActive = document.body.classList.contains('xray-mode');
                 xrayBtn.classList.toggle('active', isActive);
+                playSound(isActive ? 'pickup' : 'drop');
             });
         })();
 
-        // 4. MENU DRAWER CONTROLS
+        // --- 5. MENU DRAWER CONTROLS ---
         (function initDrawer() {
             const menuToggle = document.getElementById('menuToggle');
             const drawer = document.getElementById('studioDrawer');
@@ -691,23 +860,23 @@
             function openDrawer() {
                 drawer.classList.add('is-open');
                 document.body.style.overflow = 'hidden';
+                playSound('tick');
             }
 
             function closeDrawer() {
                 drawer.classList.remove('is-open');
                 document.body.style.overflow = '';
+                playSound('drop');
             }
 
             if (menuToggle) menuToggle.addEventListener('click', openDrawer);
             if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
             if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
 
-            drawerLinks.forEach(link => {
-                link.addEventListener('click', closeDrawer);
-            });
+            drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
         })();
 
-        // 5. SMOOTH SCROLL FOR BUTTONS
+        // --- 6. SMOOTH SCROLL ---
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 const target = document.querySelector(this.getAttribute('href'));

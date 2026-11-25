@@ -1,7 +1,7 @@
 /* ==========================================================================
    nilupul. — Metic Studio Inspired Swiss Minimalist Design System
    Aesthetic: Ultra-clean, high-precision Swiss design, technical measurement
-   ruler, interactive magnifying glass, and dual-tone architectural typography.
+   ruler, photorealistic interactive magnifying glass, and live canvas inspector.
    ========================================================================== */
 
 :root {
@@ -52,6 +52,10 @@ body.metic-body {
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
+}
+
+body.loupe-held {
+    cursor: crosshair !important;
 }
 
 /* ==========================================================================
@@ -448,195 +452,259 @@ body.metic-body {
     overflow: hidden;
 }
 
-/* Easter Egg Node */
+/* Target Concentric Element */
 .canvas-target-node {
     position: absolute;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     transform: translate(-50%, -50%);
     display: flex;
     align-items: center;
     justify-content: center;
     pointer-events: none;
+    z-index: 5;
 }
 
 .target-ring {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     border: 1.5px solid var(--accent-red);
     border-radius: 50%;
-    opacity: 0.8;
+    opacity: 0.85;
 }
 
 .target-center-dot {
-    width: 4px;
-    height: 4px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
     background-color: var(--accent-red);
 }
 
-/* Draggable Realistic Magnifying Glass */
-.interactive-magnifier {
+/* Secret Ink text (Hidden until inspected) */
+.secret-ink-container {
     position: absolute;
-    top: 22%;
-    right: 28%;
-    width: 280px;
-    height: 380px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--accent-red);
+    opacity: 0.15;
+    pointer-events: none;
+    letter-spacing: 0.04em;
+    transition: opacity 0.3s ease;
+}
+
+body.xray-mode .secret-ink-container {
+    opacity: 0.85;
+}
+
+/* ==========================================================================
+   HERO LOUPE HOME (Resting Photorealistic Metic Asset)
+   ========================================================================== */
+.loupe-home-anchor {
+    position: absolute;
+    top: calc(var(--header-height) + 1rem);
+    right: 4%;
+    width: min(44vw, 540px);
+    aspect-ratio: 760 / 881;
+    z-index: 20;
     cursor: grab;
-    z-index: 50;
     user-select: none;
-    touch-action: none;
-    transition: filter 0.2s ease;
+    transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-.interactive-magnifier.is-picked-up {
-    cursor: grabbing;
-    filter: drop-shadow(0 30px 50px rgba(0, 0, 0, 0.22));
-    z-index: 200;
+.loupe-home-anchor:hover {
+    transform: scale(1.02);
 }
 
-.magnifier-lens {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 240px;
-    height: 240px;
-    border-radius: 50%;
-    border: 10px solid #141414;
-    background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.35) 0%, rgba(245, 245, 240, 0.15) 60%, rgba(220, 220, 215, 0.4) 100%);
-    box-shadow: 
-        0 16px 40px rgba(0, 0, 0, 0.15),
-        inset 0 0 0 2px rgba(255, 255, 255, 0.4),
-        inset 0 8px 16px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(0.5px) contrast(1.05);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.lens-bezel-marks {
-    position: absolute;
-    inset: 3px;
-    border-radius: 50%;
-    border: 1px dashed rgba(255, 255, 255, 0.3);
+.loupe-poster-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: drop-shadow(0 24px 50px rgba(0, 0, 0, 0.14));
+    animation: loupeFloat 6s ease-in-out infinite;
     pointer-events: none;
 }
 
-.lens-glass-reflection {
+@keyframes loupeFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+/* Red "Pick me up." Prompt inside the Lens Center */
+.loupe-center-prompt {
     position: absolute;
-    top: 10%;
-    left: 15%;
-    width: 70%;
-    height: 35%;
+    left: 40.79%;
+    top: 38.16%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    pointer-events: none;
+    z-index: 25;
+}
+
+.prompt-red-dot {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background-color: var(--accent-red);
+    box-shadow: 0 0 16px rgba(255, 56, 35, 0.5);
+    display: block;
+    margin-bottom: 2px;
+    animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.12); }
+}
+
+.prompt-text {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--accent-red);
+    text-align: center;
+    letter-spacing: -0.02em;
+    display: flex;
+    flex-direction: column;
+}
+
+.prompt-arrow-svg {
+    width: 15px;
+    height: 15px;
+    stroke: var(--accent-red);
+    margin-top: 3px;
+}
+
+/* When the loupe is picked up and active */
+body.loupe-held .loupe-home-anchor {
+    opacity: 0.12;
+    filter: grayscale(1);
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   FLOATING INTERACTIVE LOUPE (Live Canvas Inspector When Held)
+   ========================================================================== */
+.floating-interactive-loupe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 480px;
+    height: calc(480px * 881 / 760);
+    z-index: 999;
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+    will-change: transform;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.floating-interactive-loupe.is-active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.live-loupe-shell {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    filter: drop-shadow(0 32px 70px rgba(0, 0, 0, 0.28));
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Lens Viewport: Perfectly aligned with the glass opening */
+.loupe-lens-viewport {
+    position: absolute;
+    left: calc(480px * 0.4079);
+    top: calc(480px * (881 / 760) * 0.3816);
+    transform: translate(-50%, -50%);
+    width: 190px;
+    height: 190px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 
+        inset 0 0 0 2px rgba(255, 255, 255, 0.5),
+        inset 0 0 26px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    background: #FFFFFF;
+}
+
+#loupeCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.lens-glass-bezel {
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    border: 1px dashed rgba(255, 56, 35, 0.3);
+    pointer-events: none;
+}
+
+.lens-glass-glare {
+    position: absolute;
+    top: 6%;
+    left: 12%;
+    width: 76%;
+    height: 38%;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 80%);
     border-radius: 50% 50% 40% 40%;
     transform: rotate(-25deg);
     pointer-events: none;
 }
 
-/* Prompt Circle inside Lens */
-.lens-content-bubble {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    color: var(--accent-red);
-    text-align: center;
-    font-weight: 700;
-    font-size: 1.15rem;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    pointer-events: none;
-}
-
-.lens-badge-dot {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background-color: var(--accent-red);
-    margin-bottom: 2px;
-}
-
-.lens-arrow-icon {
-    margin-top: 4px;
-    stroke: var(--accent-red);
-}
-
-/* HUD readout inside lens */
-.lens-hud-readout {
+.lens-status-label {
     position: absolute;
-    bottom: 16px;
+    bottom: 12px;
     left: 0;
     right: 0;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
+    text-align: center;
     font-family: var(--font-mono);
     font-size: 8px;
-    color: var(--ink-secondary);
+    font-weight: 700;
+    color: var(--accent-red);
     letter-spacing: 0.05em;
     pointer-events: none;
-    opacity: 0.7;
 }
 
-/* Metallic grooved handle */
-.magnifier-handle {
+.loupe-drop-indicator {
     position: absolute;
-    top: 180px;
-    left: 175px;
-    width: 44px;
-    height: 170px;
-    transform-origin: top center;
-    transform: rotate(45deg);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    top: -28px;
+    left: 20%;
+    background: rgba(17, 17, 17, 0.88);
+    backdrop-filter: blur(8px);
+    color: #FFFFFF;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+    letter-spacing: 0.02em;
+    pointer-events: none;
 }
 
-.handle-collar {
-    width: 24px;
-    height: 16px;
-    background: linear-gradient(90deg, #333 0%, #888 50%, #222 100%);
-    border-radius: 3px 3px 0 0;
-}
-
-.handle-grip {
-    width: 32px;
-    height: 130px;
-    background: #151515;
-    border-radius: 4px;
-    box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.2), inset 0 -2px 4px rgba(0, 0, 0, 0.8), 6px 12px 24px rgba(0, 0, 0, 0.35);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 10px 0;
-}
-
-.grip-stripe {
-    width: 82%;
-    height: 3px;
-    background: linear-gradient(90deg, #555 0%, #AAA 50%, #444 100%);
-    border-radius: 1px;
-}
-
-.handle-cap {
-    width: 22px;
-    height: 14px;
-    background: linear-gradient(90deg, #777 0%, #BBB 50%, #555 100%);
-    border-radius: 0 0 6px 6px;
-}
-
-/* Hero Bottom Bar */
+/* ==========================================================================
+   HERO BOTTOM BAR
+   ========================================================================== */
 .hero-bottom-bar {
     display: grid;
     grid-template-columns: 1.35fr 1fr;
     align-items: flex-end;
     gap: 48px;
     width: 100%;
+    position: relative;
+    z-index: 10;
 }
 
 .hero-headline-block {
@@ -775,6 +843,7 @@ body.metic-body {
     color: var(--ink-secondary);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
     transition: all 0.3s ease;
+    z-index: 10;
 }
 
 .egg-dot {
@@ -1283,10 +1352,10 @@ body.xray-mode .easter-egg-pill {
         gap: 32px;
     }
 
-    .interactive-magnifier {
-        right: 10%;
-        top: 20%;
-        transform: scale(0.85);
+    .loupe-home-anchor {
+        width: 48vw;
+        right: 2%;
+        top: 12%;
     }
 
     .capabilities-grid {
@@ -1324,10 +1393,12 @@ body.xray-mode .easter-egg-pill {
         padding: calc(var(--header-height) + 24px) 20px 40px 20px;
     }
 
-    .interactive-magnifier {
-        right: -20px;
-        top: 15%;
-        transform: scale(0.65);
+    .loupe-home-anchor {
+        position: relative;
+        width: 80vw;
+        margin: 20px auto 40px auto;
+        right: auto;
+        top: auto;
     }
 
     .hero-headline {
